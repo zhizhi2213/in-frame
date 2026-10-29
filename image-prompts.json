@@ -1,0 +1,31 @@
+{
+  "disclosure": "所有图片由 AI 生成，仅作摄影氛围参考，不是真实地点或拍摄效果承诺。站位与动作请以应用内图解和步骤为准。",
+  "originalSize": "1536x1024",
+  "output": "压缩为 1400 像素宽 JPEG，质量 82。",
+  "assets": [
+    {
+      "file": "public/images/coast.jpg",
+      "prompt": "Create a photorealistic editorial travel photograph for a beginner portrait-and-landscape photography guide. A quiet Mediterranean-like grassy coastal headland above a turquoise sea, distant hazy green cliffs, pale blue sky. An adult East Asian woman seen from behind wearing a simple white linen dress and a straw hat, naturally looking out over the sea, safely standing on a broad grassy area well away from the cliff edge. Full body at the right third, subject about 40 percent of image height, ample landscape in the rest of the frame. 35mm lens, natural late afternoon light, muted cinematic film colors, warm fine grain, realistic fabric and natural anatomy. Landscape format. No text, no logos, no watermark, no graphic overlays."
+    },
+    {
+      "file": "public/images/park.jpg",
+      "prompt": "Photorealistic editorial travel photography for a beginner person-and-landscape photo guide. Lush sunlit city park, tall green trees, a path disappearing into deep greenery, warm light on the grass. An adult East Asian woman in a cream blouse and a long light skirt walking naturally along the path, full body, small in the scene at the left third, looking sideways toward the trees. Landscape composition, documentary 35mm photography, soft afternoon dappled light, muted olive greens and warm natural skin, subtle film grain and realistic fabric. No text, no watermark, no logos."
+    },
+    {
+      "file": "public/images/street.jpg",
+      "prompt": "Photorealistic editorial travel photo for a beginner photography guide. A tranquil European-style old city pedestrian street with warm terracotta and cream buildings, cobblestones and elegant facades. An adult East Asian woman in a white shirt, beige trousers, with a canvas tote bag, casually walking away then glancing sideways. Full body small in frame at left third with long street perspective. Warm late-afternoon sun, authentic documentary travel photography, 35mm lens, fine analog grain, natural anatomy and fabric, soft muted warm palette. Empty pedestrian street with no moving vehicles. No text, logos or watermark."
+    },
+    {
+      "file": "public/images/mountain.jpg",
+      "prompt": "Photorealistic editorial travel landscape photograph for a beginner photography guide. Layered green alpine mountains in the distance, wide grassy meadow in foreground with a clearly safe flat footpath. One adult East Asian person wearing an earth-tone jacket and a small hiking backpack, seen from behind, standing on the footpath far from any drop, looking at the mountains. Full body small in lower right third, person 25 percent frame height. Soft morning light, muted sage greens and pale blue-gray sky, natural fine film grain, 35mm landscape photograph. No text, no logos, no watermark."
+    },
+    {
+      "file": "public/images/architecture.jpg",
+      "prompt": "Photorealistic minimalist architectural travel portrait for a beginner photography guide. Beautiful warm beige stone cloister with tall repetitive rounded arches and soft geometric sunshine on the ground, calm Mediterranean architectural space. An adult East Asian person wearing a simple white shirt and dark relaxed trousers stands naturally under one arch, full body, small in frame at the left third, eyes looking up at architecture. Straight upright verticals, wide environmental composition, 35mm camera, warm terracotta and sandstone, editorial analog texture, realistic natural anatomy. No text, no logos, no watermark."
+    },
+    {
+      "file": "public/images/cafe.jpg",
+      "prompt": "Photorealistic candid editorial cafe photograph for a beginner person-and-place photography guide. Quiet warm wooden neighborhood coffee shop, large window on the left, small round table, espresso cup and warm wood chairs, leafy view outside. An adult East Asian woman in a simple oatmeal knit sweater sits by the window, seen three-quarter from behind, looking outside naturally with one hand relaxed next to a coffee cup. Medium wide environmental portrait, include interior and window, subject right third. Soft diffused daylight, muted brown cream olive palette, 35mm lens, gentle analog grain, realistic fabric and anatomy. No text, no watermark, no logos."
+    }
+  ]
+}

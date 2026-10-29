@@ -1,0 +1,13 @@
+{
+  "name": "in-frame-photo-guide",
+  "version": "1.0.0",
+  "private": true,
+  "description": "入镜 · 给摄影新手的人景合照指导",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js",
+    "test": "node --test"
+  }
+}
