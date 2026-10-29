@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f8f7f3">
-  <meta name="description" content="入镜，为摄影新手准备的人景合照指南。选一个场景，看懂站位、姿势和构图，用手机拍出自然的旅行照片。">
-  <title>入镜 · 好风景，也要有好姿势</title>
+  <meta name="description" content="入镜，为摄影新手准备的真实照片精读库。逐张学习构图、光线、人物动作与环境关系，再带着具体步骤出门练习。">
+  <title>入镜 · 一张照片，一个小方法</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
-  <link rel="preload" as="image" href="images/coast.jpg">
+  <link rel="preload" as="image" href="images/study-corridor.jpg">
   <script type="module" src="app.js"></script>
 </head>
 <body>
@@ -38,7 +38,8 @@
     <div class="header-inner page-width">
       <a class="brand" href="./" aria-label="入镜首页"><span class="brand-symbol"><svg class="icon"><use href="#i-aperture"/></svg></span><span class="brand-name">入镜<span class="brand-en">IN FRAME</span></span></a>
       <nav class="main-nav" aria-label="主导航">
-        <button class="nav-link active" data-view="explore" aria-pressed="true">拍摄灵感</button>
+        <button class="nav-link active" data-view="explore" aria-pressed="true">逐张精读</button>
+        <button class="nav-link" data-view="practice" aria-pressed="false">随身跟拍</button>
         <button class="nav-link" data-view="saved" aria-pressed="false">我的收藏<span id="saved-count" class="nav-count" hidden>0</span></button>
       </nav>
       <button class="header-guide" data-action="guide" aria-label="新手拍摄指南"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg><span>新手拍摄指南</span><svg class="icon small" aria-hidden="true"><use href="#i-arrow"/></svg></button>
@@ -49,31 +50,22 @@
     <section class="hero page-width" aria-labelledby="hero-title">
       <div class="hero-copy">
         <span class="eyebrow"><svg class="icon small"><use href="#i-focus"/></svg> 给摄影新手的一点灵感</span>
-        <h1 id="hero-title">好风景，<br>也要有<span class="accent-text">好姿势<svg viewBox="0 0 280 15" aria-hidden="true"><path d="M3 10Q120 0 275 6M15 14Q150 6 261 10"/></svg></span>。</h1>
-        <p class="hero-description">不知道站哪里，手不知道往哪放？<br>从构图到姿势，一步一步，拍出自然的人景合照。</p>
-        <div class="hero-actions"><button class="button primary" data-action="explore">找一个场景，开始拍<svg class="icon"><use href="#i-arrow"/></svg></button><span class="device-note">一部手机，就够了</span></div>
-        <div class="hero-facts"><span><b>06</b> 日常场景</span><i></i><span><b>18</b> 人景拍法</span><i></i><span><svg class="icon"><use href="#i-heart"/></svg> 零基础也能拍</span></div>
+        <h1 id="hero-title">别急着按快门，<br>先<span class="accent-text">读懂一张照片<svg viewBox="0 0 280 15" aria-hidden="true"><path d="M3 10Q120 0 275 6M15 14Q150 6 261 10"/></svg></span>。</h1>
+        <p class="hero-description">人为什么站在这里？手怎么放，光怎么找？<br>从真实摄影作品里，一张一张学会把人与风景拍在一起。</p>
+        <div class="hero-actions"><button class="button primary" data-action="explore">挑一张，慢慢看<svg class="icon"><use href="#i-arrow"/></svg></button><span class="device-note">看懂一个点，就去试一次</span></div>
+        <div class="hero-facts"><span><b id="photo-total">16</b> 张照片精读</span><i></i><span><b>05</b> 位摄影作者</span><i></i><span><b>18</b> 个跟拍练习</span></div>
       </div>
-      <div class="hero-visual">
-        <img class="hero-photo" src="images/coast.jpg" alt="戴草帽的人站在海边草地上，远处是山峦与海湾，展示人和风景的关系" width="1400" height="933" fetchpriority="high">
-        <div class="hero-photo-shade"></div>
-        <div class="thirds-grid" aria-hidden="true"><span></span><span></span><i></i><i></i></div>
-        <span class="photo-label"><span class="live-dot"></span> 今日灵感 · 海边漫步</span>
-        <span class="photo-crosshair" aria-hidden="true"></span>
-        <div class="hero-photo-caption"><span class="photo-note">把自己，放进风景里。</span><span>LESS POSING, MORE LIVING.</span></div>
-        <span class="image-disclosure">AI 生成 · 氛围参考</span>
-        <button class="floating-tip" data-open="coast"><span class="tip-icon"><svg class="icon"><use href="#i-grid"/></svg></span><span><b>不必站在正中间</b><small>试着把人物放在画面三分之一处</small></span><svg class="icon small"><use href="#i-arrow"/></svg></button>
-      </div>
+      <figure class="hero-visual" id="hero-artwork" aria-label="本期真实摄影作品与作者署名"></figure>
     </section>
 
-    <section class="how-it-works page-width" aria-label="使用方法"><div class="how-intro">好照片，其实没那么难<span>跟着这三步，就能开始</span></div><div class="how-step"><span class="step-number">01</span><svg class="icon"><use href="#i-grid"/></svg><span>选一个场景</span></div><span class="step-line"></span><div class="how-step"><span class="step-number">02</span><svg class="icon"><use href="#i-person"/></svg><span>照着图解摆</span></div><span class="step-line"></span><div class="how-step"><span class="step-number">03</span><svg class="icon"><use href="#i-camera"/></svg><span>轻松按快门</span></div></section>
+    <section class="how-it-works page-width" aria-label="使用方法"><div class="how-intro">从欣赏，到自己拍出来<span>不背参数，先学会观察</span></div><div class="how-step"><span class="step-number">01</span><svg class="icon"><use href="#i-grid"/></svg><span>挑一张原作</span></div><span class="step-line"></span><div class="how-step"><span class="step-number">02</span><svg class="icon"><use href="#i-person"/></svg><span>看懂人、景、光</span></div><span class="step-line"></span><div class="how-step"><span class="step-number">03</span><svg class="icon"><use href="#i-camera"/></svg><span>带一个动作去练</span></div></section>
 
     <section id="inspiration" class="inspiration page-width" tabindex="-1" aria-labelledby="section-title">
-      <div class="section-heading"><div><span class="section-eyebrow" id="section-eyebrow">FIND YOUR NEXT FRAME</span><h2 id="section-title">下一张，想在哪里拍？</h2><p id="section-description">选一个眼前的场景，把普通的一刻拍得不普通。</p></div><label class="search-box"><svg class="icon"><use href="#i-search"/></svg><input type="search" id="scene-search" placeholder="搜索场景、姿势…" aria-label="搜索场景或姿势" maxlength="80" autocomplete="off"></label></div>
+      <div class="section-heading"><div><span class="section-eyebrow" id="section-eyebrow">ONE PHOTO, ONE LESSON</span><h2 id="section-title">一张照片，学会一个小方法。</h2><p id="section-description">看看人在哪里、光从哪里来，再带着一个动作去练习。</p></div><label class="search-box"><svg class="icon"><use href="#i-search"/></svg><input type="search" id="scene-search" placeholder="搜索技巧、动作、作者…" aria-label="搜索照片、场景、技巧或作者" maxlength="80" autocomplete="off"></label></div>
       <div class="filter-bar"><div class="scene-filters" id="scene-filters" aria-label="按拍摄场景筛选"></div><span class="result-count" id="result-count" role="status" aria-live="polite"></span></div>
       <div class="scene-grid" id="scene-grid"></div>
       <div id="empty-state" class="empty-state" hidden><span class="empty-icon"><svg class="icon"><use href="#i-bookmark"/></svg></span><h3 id="empty-title"></h3><p id="empty-description"></p><button class="button secondary" id="empty-reset">看看全部灵感<svg class="icon"><use href="#i-arrow"/></svg></button></div>
-      <p class="collection-note"><svg class="icon small"><use href="#i-sun"/></svg> 每个场景都有 3 种拍法。没有标准答案，拍得开心最重要。<span>图片为 AI 生成的氛围参考，站位请以图解为准。</span></p>
+      <p class="collection-note"><svg class="icon small"><use href="#i-sun"/></svg> 精读不是唯一答案。先模仿一个方法，再找到自己的表达。<span id="image-presentation"></span><span id="practice-disclosure"></span></p>
       <noscript><p class="noscript">请开启浏览器 JavaScript，以查看场景图解和拍摄指导。</p></noscript>
     </section>
 
@@ -82,6 +74,7 @@
 
   <footer class="site-footer page-width"><a class="footer-brand" href="./"><svg class="icon"><use href="#i-aperture"/></svg> 入镜 <span>把日常，拍成值得记住的模样。</span></a><span>为每个“不会拍照”的人而做 <span class="footer-dot">·</span> 收藏保存在当前浏览器</span></footer>
 
+  <dialog id="photo-dialog" class="photo-dialog" aria-labelledby="photo-title"><div class="dialog-topbar"><span><svg class="icon"><use href="#i-aperture"/></svg> 入镜 · 一张照片，一次精读</span><button class="icon-button" data-action="close-photo" aria-label="关闭照片精读"><svg class="icon"><use href="#i-close"/></svg></button></div><div id="photo-content"></div></dialog>
   <dialog id="shot-dialog" class="shot-dialog" aria-labelledby="detail-title"><div class="dialog-topbar"><span><svg class="icon"><use href="#i-aperture"/></svg> 入镜 · 随身拍摄手册</span><button class="icon-button" data-action="close-shot" aria-label="关闭拍摄指导"><svg class="icon"><use href="#i-close"/></svg></button></div><div id="detail-content"></div></dialog>
   <dialog id="guide-dialog" class="guide-dialog" aria-labelledby="guide-title"><div class="dialog-topbar"><span><svg class="icon"><use href="#i-camera"/></svg> 你的第一张人景合照</span><button class="icon-button" data-action="close-guide" aria-label="关闭新手指南"><svg class="icon"><use href="#i-close"/></svg></button></div><div class="guide-body"><span class="section-eyebrow">START SIMPLE. STAY CURIOUS.</span><h2 id="guide-title">先别担心参数，<br>做好这四件小事。</h2><ol class="guide-list"><li><span>01</span><div><h3>擦一擦镜头，打开网格线</h3><p>在手机相机设置中找“网格”或“参考线”。让海平面、建筑边缘保持水平或竖直。</p></div></li><li><span>02</span><div><h3>先用 1×，别急着放大</h3><p>主摄通常更清晰。前后走动调整取景；避免用 0.5× 贴近拍脸，容易变形。</p></div></li><li><span>03</span><div><h3>点一下人脸，让人物清晰</h3><p>点击屏幕上的脸对焦。脸太暗时先换到柔和的光线下，再小幅调整曝光。</p></div></li><li><span>04</span><div><h3>让对方动起来，多拍几张</h3><p>试试慢走、回头、看远处。抓拍后放大检查眼睛是否清晰，再调整下一张。</p></div></li></ol><p class="safety-note">安全比照片重要。留在安全步道内，注意车辆、海浪和脚下，不为取景靠近危险边缘。</p><button class="button primary full-width" data-action="guide-start">我准备好了，去选场景<svg class="icon"><use href="#i-arrow"/></svg></button></div></dialog>
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>

@@ -6,6 +6,14 @@ export function selectScenes(scenes, { category = 'all', query = '', view = 'exp
   });
 }
 
+export function selectPhotos(photos, { category = 'all', query = '', view = 'explore', saved = [] } = {}) {
+  const term = query.trim().toLocaleLowerCase();
+  return photos.filter(photo => {
+    const content = [photo.category, photo.title, photo.takeaway, ...photo.tags, photo.level, photo.alt, photo.observation, photo.composition, photo.light, photo.pose, photo.album.author, photo.album.title, ...Object.values(photo.exercise).flat()].join(' ').toLocaleLowerCase();
+    return (category === 'all' || photo.sceneId === category) && (view !== 'saved' || saved.includes(photo.id)) && (!term || content.includes(term));
+  });
+}
+
 export function parseSaved(raw, validIds) {
   try {
     const data = JSON.parse(raw);
