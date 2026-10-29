@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f8f7f3">
+  <meta name="description" content="入镜，为摄影新手准备的人景合照指南。选一个场景，看懂站位、姿势和构图，用手机拍出自然的旅行照片。">
+  <title>入镜 · 好风景，也要有好姿势</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preload" as="image" href="images/coast.jpg">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-aperture" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="m14.3 2.8-3.1 5.4M21.1 8.8h-6.3m3.9 10.1-3.2-5.5M9.7 21.2l3.1-5.4M2.9 15.2h6.3M5.3 5.1l3.2 5.5M8.5 10.6l2.7-2.4h3.6l.7 5.2-2.7 2.4H9.2z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17l-6-4-6 4z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M8 5 9.5 3h5L16 5h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><circle cx="12" cy="13" r="4"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-tree" viewBox="0 0 24 24"><path d="m12 2 7 9h-4l5 7H4l5-7H5zM12 18v4"/></symbol>
+    <symbol id="i-wave" viewBox="0 0 24 24"><path d="M2 8c3-5 7 5 10 0s7 5 10 0M2 14c3-5 7 5 10 0s7 5 10 0M2 20c3-5 7 5 10 0s7 5 10 0"/></symbol>
+    <symbol id="i-street" viewBox="0 0 24 24"><path d="M3 21V7h7v14m4 0V3h7v18M1 21h22M6 10h1m-1 4h1m10-8h1m-1 4h1m-1 4h1"/></symbol>
+    <symbol id="i-mountain" viewBox="0 0 24 24"><path d="m2 20 9-16 11 16zM7 11l4 3 4-4M16 8l2-3 5 9"/></symbol>
+    <symbol id="i-arch" viewBox="0 0 24 24"><path d="M4 22V10a8 8 0 0 1 16 0v12M8 22V10a4 4 0 0 1 8 0v12M2 22h20M4 10h4m8 0h4M12 2v4"/></symbol>
+    <symbol id="i-cup" viewBox="0 0 24 24"><path d="M4 8h13v7a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM17 8h2a3 3 0 0 1 0 6h-2M2 23h19M8 1v3m5-3v3"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-focus" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M8 12h8m-4-4v8"/></symbol>
+    <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><path d="M5 13c1-4 13-4 14 0M12 10v6m0 0-5 6m5-6 5 6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.7 4.7a5.5 5.5 0 0 0-7.8 0L12 5.8l-.9-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.7-8.5a5.5 5.5 0 0 0 0-7.8z"/></symbol>
+  </svg>
+  <a class="skip-link" href="#inspiration">跳到拍摄场景</a>
+  <header class="site-header">
+    <div class="header-inner page-width">
+      <a class="brand" href="./" aria-label="入镜首页"><span class="brand-symbol"><svg class="icon"><use href="#i-aperture"/></svg></span><span class="brand-name">入镜<span class="brand-en">IN FRAME</span></span></a>
+      <nav class="main-nav" aria-label="主导航">
+        <button class="nav-link active" data-view="explore" aria-pressed="true">拍摄灵感</button>
+        <button class="nav-link" data-view="saved" aria-pressed="false">我的收藏<span id="saved-count" class="nav-count" hidden>0</span></button>
+      </nav>
+      <button class="header-guide" data-action="guide" aria-label="新手拍摄指南"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg><span>新手拍摄指南</span><svg class="icon small" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero page-width" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <span class="eyebrow"><svg class="icon small"><use href="#i-focus"/></svg> 给摄影新手的一点灵感</span>
+        <h1 id="hero-title">好风景，<br>也要有<span class="accent-text">好姿势<svg viewBox="0 0 280 15" aria-hidden="true"><path d="M3 10Q120 0 275 6M15 14Q150 6 261 10"/></svg></span>。</h1>
+        <p class="hero-description">不知道站哪里，手不知道往哪放？<br>从构图到姿势，一步一步，拍出自然的人景合照。</p>
+        <div class="hero-actions"><button class="button primary" data-action="explore">找一个场景，开始拍<svg class="icon"><use href="#i-arrow"/></svg></button><span class="device-note">一部手机，就够了</span></div>
+        <div class="hero-facts"><span><b>06</b> 日常场景</span><i></i><span><b>18</b> 人景拍法</span><i></i><span><svg class="icon"><use href="#i-heart"/></svg> 零基础也能拍</span></div>
+      </div>
+      <div class="hero-visual">
+        <img class="hero-photo" src="images/coast.jpg" alt="戴草帽的人站在海边草地上，远处是山峦与海湾，展示人和风景的关系" width="1400" height="933" fetchpriority="high">
+        <div class="hero-photo-shade"></div>
+        <div class="thirds-grid" aria-hidden="true"><span></span><span></span><i></i><i></i></div>
+        <span class="photo-label"><span class="live-dot"></span> 今日灵感 · 海边漫步</span>
+        <span class="photo-crosshair" aria-hidden="true"></span>
+        <div class="hero-photo-caption"><span class="photo-note">把自己，放进风景里。</span><span>LESS POSING, MORE LIVING.</span></div>
+        <span class="image-disclosure">AI 生成 · 氛围参考</span>
+        <button class="floating-tip" data-open="coast"><span class="tip-icon"><svg class="icon"><use href="#i-grid"/></svg></span><span><b>不必站在正中间</b><small>试着把人物放在画面三分之一处</small></span><svg class="icon small"><use href="#i-arrow"/></svg></button>
+      </div>
+    </section>
+
+    <section class="how-it-works page-width" aria-label="使用方法"><div class="how-intro">好照片，其实没那么难<span>跟着这三步，就能开始</span></div><div class="how-step"><span class="step-number">01</span><svg class="icon"><use href="#i-grid"/></svg><span>选一个场景</span></div><span class="step-line"></span><div class="how-step"><span class="step-number">02</span><svg class="icon"><use href="#i-person"/></svg><span>照着图解摆</span></div><span class="step-line"></span><div class="how-step"><span class="step-number">03</span><svg class="icon"><use href="#i-camera"/></svg><span>轻松按快门</span></div></section>
+
+    <section id="inspiration" class="inspiration page-width" tabindex="-1" aria-labelledby="section-title">
+      <div class="section-heading"><div><span class="section-eyebrow" id="section-eyebrow">FIND YOUR NEXT FRAME</span><h2 id="section-title">下一张，想在哪里拍？</h2><p id="section-description">选一个眼前的场景，把普通的一刻拍得不普通。</p></div><label class="search-box"><svg class="icon"><use href="#i-search"/></svg><input type="search" id="scene-search" placeholder="搜索场景、姿势…" aria-label="搜索场景或姿势" maxlength="80" autocomplete="off"></label></div>
+      <div class="filter-bar"><div class="scene-filters" id="scene-filters" aria-label="按拍摄场景筛选"></div><span class="result-count" id="result-count" role="status" aria-live="polite"></span></div>
+      <div class="scene-grid" id="scene-grid"></div>
+      <div id="empty-state" class="empty-state" hidden><span class="empty-icon"><svg class="icon"><use href="#i-bookmark"/></svg></span><h3 id="empty-title"></h3><p id="empty-description"></p><button class="button secondary" id="empty-reset">看看全部灵感<svg class="icon"><use href="#i-arrow"/></svg></button></div>
+      <p class="collection-note"><svg class="icon small"><use href="#i-sun"/></svg> 每个场景都有 3 种拍法。没有标准答案，拍得开心最重要。<span>图片为 AI 生成的氛围参考，站位请以图解为准。</span></p>
+      <noscript><p class="noscript">请开启浏览器 JavaScript，以查看场景图解和拍摄指导。</p></noscript>
+    </section>
+
+    <aside class="field-notes page-width" aria-labelledby="notes-title"><div class="notes-title"><span class="section-eyebrow">A LITTLE FIELD NOTE</span><h2 id="notes-title">小小改变，<br>大不一样。</h2><span class="notes-doodle" aria-hidden="true"><svg class="icon"><use href="#i-sun"/></svg></span></div><div class="note-item"><span>01 / 关于光线</span><h3>先找光，再找角度</h3><p>清晨和傍晚的光更柔和。正午试试树荫，避开脸上斑驳的光点。</p></div><div class="note-item"><span>02 / 关于自然</span><h3>给一个动作，而不是姿势</h3><p>“慢慢往前走，回头看看我”，比一句“自然一点”更有用。</p></div><div class="note-item"><span>03 / 关于留白</span><h3>往后一点，故事多一点</h3><p>别急着把画面填满。留下一条路、一片海，让环境也成为主角。</p></div></aside>
+  </main>
+
+  <footer class="site-footer page-width"><a class="footer-brand" href="./"><svg class="icon"><use href="#i-aperture"/></svg> 入镜 <span>把日常，拍成值得记住的模样。</span></a><span>为每个“不会拍照”的人而做 <span class="footer-dot">·</span> 收藏保存在当前浏览器</span></footer>
+
+  <dialog id="shot-dialog" class="shot-dialog" aria-labelledby="detail-title"><div class="dialog-topbar"><span><svg class="icon"><use href="#i-aperture"/></svg> 入镜 · 随身拍摄手册</span><button class="icon-button" data-action="close-shot" aria-label="关闭拍摄指导"><svg class="icon"><use href="#i-close"/></svg></button></div><div id="detail-content"></div></dialog>
+  <dialog id="guide-dialog" class="guide-dialog" aria-labelledby="guide-title"><div class="dialog-topbar"><span><svg class="icon"><use href="#i-camera"/></svg> 你的第一张人景合照</span><button class="icon-button" data-action="close-guide" aria-label="关闭新手指南"><svg class="icon"><use href="#i-close"/></svg></button></div><div class="guide-body"><span class="section-eyebrow">START SIMPLE. STAY CURIOUS.</span><h2 id="guide-title">先别担心参数，<br>做好这四件小事。</h2><ol class="guide-list"><li><span>01</span><div><h3>擦一擦镜头，打开网格线</h3><p>在手机相机设置中找“网格”或“参考线”。让海平面、建筑边缘保持水平或竖直。</p></div></li><li><span>02</span><div><h3>先用 1×，别急着放大</h3><p>主摄通常更清晰。前后走动调整取景；避免用 0.5× 贴近拍脸，容易变形。</p></div></li><li><span>03</span><div><h3>点一下人脸，让人物清晰</h3><p>点击屏幕上的脸对焦。脸太暗时先换到柔和的光线下，再小幅调整曝光。</p></div></li><li><span>04</span><div><h3>让对方动起来，多拍几张</h3><p>试试慢走、回头、看远处。抓拍后放大检查眼睛是否清晰，再调整下一张。</p></div></li></ol><p class="safety-note">安全比照片重要。留在安全步道内，注意车辆、海浪和脚下，不为取景靠近危险边缘。</p><button class="button primary full-width" data-action="guide-start">我准备好了，去选场景<svg class="icon"><use href="#i-arrow"/></svg></button></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
