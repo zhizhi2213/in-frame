@@ -1,5 +1,7 @@
 import { scenes, modes } from './data.js';
-import { selectScenes, parseSaved, toggleSaved } from './model.js';
+import { photos } from './photos.js';
+import { selectScenes, selectPhotos, parseSaved, toggleSaved } from './model.js';
+import { sourceRights, rightsNote, imagePresentation, practiceDisclosure } from './image-sources.js';
 
 const $ = selector => document.querySelector(selector);
 const icon = name => `<svg class="icon" aria-hidden="true"><use href="#i-${name}"/></svg>`;
@@ -7,7 +9,7 @@ const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;
 const sceneIcons = { park: 'tree', coast: 'wave', street: 'street', mountain: 'mountain', architecture: 'arch', cafe: 'cup' };
 const modeIcons = { landscape: 'grid', portrait: 'person', interaction: 'camera' };
 const storageKey = 'in-frame:saved-scenes:v1';
-const validIds = scenes.map(scene => scene.id);
+const validIds = [...scenes, ...photos].map(item => item.id);
 let storageAvailable = true;
 let saved = [];
 try {
@@ -15,39 +17,55 @@ try {
 } catch {
   storageAvailable = false;
 }
-const state = { view: 'explore', category: 'all', query: '', saved, scene: null, mode: 'landscape', step: null };
+const state = { view: 'explore', category: 'all', query: '', saved, scene: null, mode: 'landscape', step: null, photo: null, photoOrder: [] };
 const shotDialog = $('#shot-dialog');
 const guideDialog = $('#guide-dialog');
+const photoDialog = $('#photo-dialog');
 let toastTimer;
 let opener;
 
+function photoCredit(photo, full = false) {
+  return `<div class="photo-credit"><p class="credit-author">摄影 / ${escape(photo.album.author)}</p><p><cite>《${escape(photo.album.title)}》</cite> · 原图集第 ${photo.source.index} 张</p><div class="credit-links"><a href="${escape(photo.album.sourceUrl)}" target="_blank" rel="noopener noreferrer">CNU 原作品 ↗</a>${full ? `<a href="${escape(photo.album.authorUrl)}" target="_blank" rel="noopener noreferrer">作者主页 ↗</a><a href="${escape(photo.source.previewUrl)}" target="_blank" rel="noopener noreferrer">原站数字预览 ↗</a>` : ''}</div><p class="credit-rights">原站声明：${escape(sourceRights)}</p>${full ? `<details class="source-policy"><summary>来源与使用说明</summary><p class="credit-note">${escape(rightsNote)}</p><p class="credit-note">${escape(imagePresentation)}</p></details>` : ''}</div>`;
+}
+
+function renderHero() {
+  const photo = photos[0];
+  $('#hero-artwork').innerHTML = `<span class="artwork-label">本期精读 01 / 人在风景里，而不只是站在风景前</span><button class="hero-photo-frame" data-photo="${photo.id}" aria-label="精读：${escape(photo.title)}"><img class="hero-photo" src="${photo.source.image}" alt="${escape(photo.alt)}" width="${photo.source.width}" height="${photo.source.height}" fetchpriority="high"></button><figcaption>${photoCredit(photo)}</figcaption><button class="hero-practice" data-photo="${photo.id}">为什么人站在这里，照片就好看？ ${icon('arrow')}</button>`;
+  $('#photo-total').textContent = String(photos.length).padStart(2, '0');
+  $('#image-presentation').textContent = imagePresentation;
+  $('#practice-disclosure').textContent = practiceDisclosure;
+}
+
 function renderFilters() {
-  $('#scene-filters').innerHTML = [{ id: 'all', category: '全部场景' }, ...scenes].map(scene => `<button class="filter${state.category === scene.id ? ' active' : ''}" data-category="${scene.id}" aria-pressed="${state.category === scene.id}">${icon(sceneIcons[scene.id] || 'grid')}${scene.category}</button>`).join('');
+  const categories = state.view === 'explore' ? scenes.filter(scene => photos.some(photo => photo.sceneId === scene.id)) : scenes;
+  $('#scene-filters').innerHTML = [{ id: 'all', category: '全部场景' }, ...categories].map(scene => `<button class="filter${state.category === scene.id ? ' active' : ''}" data-category="${scene.id}" aria-pressed="${state.category === scene.id}">${icon(sceneIcons[scene.id] || 'grid')}${scene.category}</button>`).join('');
+}
+
+function saveButton(item) {
+  const isSaved = state.saved.includes(item.id);
+  return `<button class="save-button${isSaved ? ' saved' : ''}" data-save="${item.id}" aria-label="${isSaved ? '取消收藏' : '收藏'}${escape(item.title)}" aria-pressed="${isSaved}">${icon('bookmark')}</button>`;
 }
 
 function renderCards() {
-  const visible = selectScenes(scenes, state);
-  $('#scene-grid').innerHTML = visible.map(scene => {
-    const isSaved = state.saved.includes(scene.id);
-    return `<article class="scene-card" data-scene="${scene.id}">
-      <div class="card-photo"><button class="photo-open" data-open="${scene.id}" aria-label="查看${scene.category}拍摄指导"><img src="${scene.image}" alt="${escape(scene.alt)}" width="1400" height="933" loading="lazy" decoding="async"></button>
-        <span class="card-category">${icon(sceneIcons[scene.id])}${scene.category}</span>
-        <button class="save-button${isSaved ? ' saved' : ''}" data-save="${scene.id}" aria-label="${isSaved ? '取消收藏' : '收藏'}${scene.category}" aria-pressed="${isSaved}">${icon('bookmark')}</button><span class="image-disclosure">AI 生成参考</span>
-      </div>
-      <div class="card-body"><button class="card-heading" data-open="${scene.id}"><h3>${escape(scene.title)}</h3>${icon('arrow')}</button><p class="card-subtitle">${escape(scene.subtitle)}</p>
-        <div class="card-tags"><div>${scene.tags.map(tag => `<span class="tag">${escape(tag)}</span>`).join('')}</div><button class="card-more" data-open="${scene.id}" aria-label="查看${scene.category}的三种拍法">3 种拍法 ${icon('chevron')}</button></div>
-      </div></article>`;
-  }).join('');
-  $('#result-count').textContent = `${visible.length} 个场景 · ${visible.length * 3} 种拍法`;
+  const visiblePhotos = state.view === 'practice' ? [] : selectPhotos(photos, state);
+  const visibleScenes = state.view === 'explore' ? [] : selectScenes(scenes, state);
+  $('#scene-grid').classList.toggle('photo-grid', state.view !== 'practice');
+  $('#scene-grid').innerHTML = visiblePhotos.map(photo => `<article class="scene-card photo-card" data-item="${photo.id}">
+    <div class="card-toolbar"><span class="card-category">${String(photos.indexOf(photo) + 1).padStart(2, '0')} / ${escape(photo.level)}</span>${saveButton(photo)}</div>
+    <div class="card-photo"><button class="photo-open" data-photo="${photo.id}" aria-label="精读：${escape(photo.title)}"><img src="${photo.source.image}" alt="${escape(photo.alt)}" width="${photo.source.width}" height="${photo.source.height}" loading="lazy" decoding="async"></button></div>
+    <div class="card-body"><button class="card-heading" data-photo="${photo.id}"><h3>${escape(photo.title)}</h3>${icon('arrow')}</button><p class="card-subtitle">${escape(photo.takeaway)}</p><div class="card-tags"><div>${photo.tags.map(tag => `<span class="tag">${escape(tag)}</span>`).join('')}</div><button class="card-more" data-photo="${photo.id}">逐张解析 ${icon('chevron')}</button></div></div>
+    <div class="card-credit">${photoCredit(photo)}</div></article>`).join('') + visibleScenes.map(scene => `<article class="scene-card practice-card" data-item="${scene.id}"><div class="card-toolbar"><span class="card-category">${icon(sceneIcons[scene.id])}${scene.category} / 跟拍</span>${saveButton(scene)}</div><div class="practice-symbol">${icon(sceneIcons[scene.id])}<span>独立练习 · 3 种拍法</span></div><div class="card-body"><button class="card-heading" data-open="${scene.id}"><h3>${escape(scene.title)}</h3>${icon('arrow')}</button><p class="card-subtitle">${escape(scene.subtitle)}</p><div class="card-tags"><div>${scene.tags.map(tag => `<span class="tag">${escape(tag)}</span>`).join('')}</div><button class="card-more" data-open="${scene.id}">开始跟拍 ${icon('chevron')}</button></div></div></article>`).join('');
+  const total = visiblePhotos.length + visibleScenes.length;
+  $('#result-count').textContent = state.view === 'practice' ? `${visibleScenes.length} 个场景 · ${visibleScenes.length * 3} 种拍法` : `${visiblePhotos.length} 张精读${state.view === 'saved' ? ` · ${visibleScenes.length} 个跟拍场景` : ' · 每张独立解析'}`;
   const count = $('#saved-count');
   count.textContent = state.saved.length;
   count.hidden = state.saved.length === 0;
-  $('#empty-state').hidden = visible.length > 0;
-  $('#scene-grid').hidden = visible.length === 0;
+  $('#empty-state').hidden = total > 0;
+  $('#scene-grid').hidden = total === 0;
   const noFavorites = state.view === 'saved' && state.saved.length === 0;
-  $('#empty-title').textContent = noFavorites ? '把下一次想拍的，先收藏起来' : '还没找到这个场景';
-  $('#empty-description').textContent = noFavorites ? '点击照片右上角的收藏按钮，喜欢的拍法就在这里等你。' : '试试“海边”“窗边”或“散步”，也可以清除筛选重新看看。';
-  $('#empty-reset').textContent = state.view === 'saved' ? '去发现拍摄灵感' : '清除筛选，看看全部';
+  $('#empty-title').textContent = noFavorites ? '把值得多看一眼的，留下来' : '没有找到符合条件的内容';
+  $('#empty-description').textContent = noFavorites ? '收藏一张照片或一个跟拍场景，下次回来继续练习。' : '试试“坐姿”“逆光”或作者名字，也可以清除筛选。';
+  $('#empty-reset').textContent = state.view === 'saved' ? '去看照片精读' : '清除筛选，看看全部';
 }
 
 function setView(view, shouldScroll = true) {
@@ -60,9 +78,16 @@ function setView(view, shouldScroll = true) {
     button.classList.toggle('active', active);
     button.setAttribute('aria-pressed', active);
   });
-  $('#section-eyebrow').textContent = view === 'saved' ? 'KEEP A LITTLE INSPIRATION' : 'FIND YOUR NEXT FRAME';
-  $('#section-title').textContent = view === 'saved' ? '喜欢的拍法，下次照着拍。' : '下一张，想在哪里拍？';
-  $('#section-description').textContent = view === 'saved' ? '给下一次出门，存一点拍照的灵感。收藏仅保存在当前浏览器。' : '选一个眼前的场景，把普通的一刻拍得不普通。';
+  const headings = {
+    explore: ['ONE PHOTO, ONE LESSON', '一张照片，学会一个小方法。', '不是刷过就算。看看人在哪里、光从哪里来，再带着一个动作去练习。'],
+    practice: ['TAKE IT INTO THE FIELD', '看懂以后，带着步骤出门。', '6 个日常场景，18 种独立练习；手绘示意不代表原作机位，也不是原作复刻。'],
+    saved: ['YOUR PERSONAL STUDY SHELF', '值得再看一遍的，都在这里。', '照片精读与跟拍场景一起收藏，仅保存在当前浏览器。']
+  };
+  const [eyebrow, title, description] = headings[view];
+  $('#section-eyebrow').textContent = eyebrow;
+  $('#section-title').textContent = title;
+  $('#section-description').textContent = description;
+  $('#scene-search').placeholder = view === 'practice' ? '搜索场景、姿势…' : '搜索技巧、动作、作者…';
   renderFilters();
   renderCards();
   if (shouldScroll) scrollToScenes();
@@ -82,7 +107,7 @@ function showToast(message) {
   toastTimer = setTimeout(() => { toast.hidden = true; }, 3500);
 }
 
-function saveScene(id) {
+function saveItem(id) {
   state.saved = toggleSaved(state.saved, id);
   let persisted = false;
   if (storageAvailable) {
@@ -96,13 +121,46 @@ function saveScene(id) {
   const isSaved = state.saved.includes(id);
   const cardHadFocus = $('#scene-grid').contains(document.activeElement);
   renderCards();
-  const detailSave = $('#detail-content [data-save]');
-  if (detailSave) {
-    detailSave.setAttribute('aria-pressed', isSaved);
-    detailSave.innerHTML = `${icon('bookmark')}${isSaved ? '已收藏' : '收藏拍法'}`;
-  }
-  if (cardHadFocus) ($(`[data-scene="${id}"] [data-save]`) || $('#scene-grid [data-save]') || $('#empty-reset')).focus({ preventScroll: true });
+  document.querySelectorAll('dialog [data-save]').forEach(button => {
+    const active = state.saved.includes(button.dataset.save);
+    button.setAttribute('aria-pressed', active);
+    button.innerHTML = `${icon('bookmark')}${active ? '已收藏' : '收藏'}`;
+  });
+  if (cardHadFocus) ($(`[data-item="${id}"] [data-save]`) || $('#scene-grid [data-save]') || $('#empty-reset')).focus({ preventScroll: true });
   showToast(persisted ? (isSaved ? '已收藏，下次来这里找灵感' : '已取消收藏') : '浏览器无法保存收藏，本次页面内仍可使用');
+}
+
+function renderPhotoDetail() {
+  const photo = photos.find(item => item.id === state.photo);
+  const index = state.photoOrder.indexOf(photo.id);
+  const scene = scenes.find(item => item.id === photo.sceneId);
+  const exercise = photo.exercise;
+  $('#photo-content').innerHTML = `<div class="study-intro"><div><span class="section-eyebrow">${escape(scene.category)} / ${escape(photo.level)}</span><h2 id="photo-title" tabindex="-1">${escape(photo.title)}</h2><p>${escape(photo.takeaway)}</p></div><button class="detail-save" data-save="${photo.id}" aria-pressed="${state.saved.includes(photo.id)}">${icon('bookmark')}${state.saved.includes(photo.id) ? '已收藏' : '收藏'}</button></div>
+    <div class="study-layout"><figure class="study-image"><img src="${photo.source.image}" alt="${escape(photo.alt)}" width="${photo.source.width}" height="${photo.source.height}"><figcaption>${photoCredit(photo, true)}</figcaption></figure>
+    <div class="study-reading"><p class="reading-label">先看照片 / 本站视觉解读</p>${[['01', '画面里，实际有什么', photo.observation], ['02', '构图与人景关系', photo.composition], ['03', '光线与色彩', photo.light], ['04', '动作、视线与身体', photo.pose]].map(([number, title, text]) => `<section class="reading-section"><h3><span>${number}</span>${title}</h3><p>${escape(text)}</p></section>`).join('')}
+      <section class="photo-exercise"><span class="section-eyebrow">TRY IT YOUR WAY / 本站练习建议</span><h3>这次出门，只练这一件事。</h3><p><strong>人物位置</strong>${escape(exercise.position)}</p><p><strong>摄影师机位</strong>${escape(exercise.camera)}</p><ol class="pose-list">${exercise.steps.map((step, i) => `<li><span>0${i + 1}</span>${escape(step)}</li>`).join('')}</ol><blockquote class="direction"><small>可以这样引导</small>“${escape(exercise.direction)}”</blockquote><p class="exercise-check"><strong>拍完自查</strong>${escape(exercise.check)}</p><p class="safety-note">少踩一个坑 · ${escape(exercise.avoid)}</p></section>
+      <p class="analysis-disclosure">${escape(practiceDisclosure)}卡片标题是本站学习点，不是原作者作品名；原图集信息见署名。</p></div></div>
+    <nav class="photo-pager" aria-label="逐张精读翻页"><button class="button secondary" data-photo-jump="-1" ${index === 0 ? 'disabled' : ''}>上一张</button><span role="status" aria-live="polite">${index + 1} / ${state.photoOrder.length}<small>当前筛选结果</small></span><button class="button primary" data-photo-jump="1" ${index === state.photoOrder.length - 1 ? 'disabled' : ''}>下一张 ${icon('arrow')}</button></nav>`;
+}
+
+function openPhoto(id, trigger) {
+  opener = trigger;
+  const visible = state.view === 'practice' ? [] : selectPhotos(photos, state);
+  state.photoOrder = (visible.some(photo => photo.id === id) ? visible : photos).map(photo => photo.id);
+  state.photo = id;
+  renderPhotoDetail();
+  photoDialog.showModal();
+  document.body.classList.add('modal-open');
+  photoDialog.scrollTop = 0;
+}
+
+function changePhoto(delta) {
+  const index = state.photoOrder.indexOf(state.photo) + delta;
+  if (index < 0 || index >= state.photoOrder.length) return;
+  state.photo = state.photoOrder[index];
+  renderPhotoDetail();
+  photoDialog.scrollTop = 0;
+  $('#photo-title').focus({ preventScroll: true });
 }
 
 function background(sceneId) {
@@ -160,6 +218,7 @@ function renderDetail() {
   }
   const isSaved = state.saved.includes(scene.id);
   $('#detail-content').innerHTML = `<div class="detail-intro"><div><span class="section-eyebrow">${escape(scene.category)} / 3 WAYS TO FRAME</span><h2 id="detail-title">${escape(scene.title)}</h2><p>同一处风景，换一种拍法，就有新的故事。</p></div><button class="detail-save" data-save="${scene.id}" aria-pressed="${isSaved}">${icon('bookmark')}${isSaved ? '已收藏' : '收藏拍法'}</button></div>
+    <p class="practice-note">以下为独立的手机拍摄练习；手绘示意并非任何原作的实景测量或拍摄参数。</p>
     <div class="mode-tabs" role="tablist" aria-label="选择拍摄方式">${modes.map(mode => `<button class="mode-tab${state.mode === mode.id ? ' active' : ''}" id="mode-${mode.id}" role="tab" aria-controls="mode-panel" aria-selected="${state.mode === mode.id}" tabindex="${state.mode === mode.id ? 0 : -1}" data-mode="${mode.id}">${icon(modeIcons[mode.id])}<span><b>${mode.label}</b><small>${mode.description}</small></span></button>`).join('')}</div>
     <div class="detail-columns" id="mode-panel" role="tabpanel" aria-labelledby="mode-${state.mode}">${diagramPanel(scene, variant)}<div class="detail-instructions"><h3>${escape(variant.title)}</h3><p class="variant-summary">${escape(variant.summary)}</p>${stats(variant)}<h4 class="instruction-label">${icon('person')} 人物这样站、这样动</h4><p class="variant-summary">${escape(variant.position)}</p>${poseList(variant)}${direction(variant)}<p class="avoid">少踩一个坑 · ${escape(variant.avoid)}</p></div></div>
     <div class="detail-bottom"><span>距离只是起点，请根据实际画面调整。<br>不用一次记住，跟着步骤慢慢拍。</span><button class="button primary" data-action="start-walk">开始跟拍 ${icon('arrow')}</button></div>`;
@@ -204,14 +263,14 @@ function closeDialog(dialog) {
   dialog.close();
 }
 
-for (const dialog of [shotDialog, guideDialog]) {
+for (const dialog of [shotDialog, guideDialog, photoDialog]) {
   dialog.addEventListener('close', () => {
     document.body.classList.remove('modal-open');
     const toast = $('#toast');
     toast.hidden = true;
     document.body.append(toast);
     if (opener?.isConnected) opener.focus({ preventScroll: true });
-    else if (dialog === shotDialog) ($(`[data-open="${state.scene}"]`) || $('[data-view="explore"]')).focus({ preventScroll: true });
+    else ($(`[data-photo="${state.photo}"]`) || $(`[data-open="${state.scene}"]`) || $('[data-view="explore"]')).focus({ preventScroll: true });
   });
   dialog.addEventListener('click', event => {
     if (event.target !== dialog) return;
@@ -231,7 +290,9 @@ document.addEventListener('click', event => {
     $(`[data-category="${state.category}"]`).focus({ preventScroll: true });
     return;
   }
-  if (button.dataset.save) return saveScene(button.dataset.save);
+  if (button.dataset.save) return saveItem(button.dataset.save);
+  if (button.dataset.photo) return openPhoto(button.dataset.photo, button);
+  if (button.dataset.photoJump) return changePhoto(Number(button.dataset.photoJump));
   if (button.dataset.open) return openScene(button.dataset.open, button);
   if (button.dataset.mode) {
     state.mode = button.dataset.mode;
@@ -245,6 +306,7 @@ document.addEventListener('click', event => {
     case 'close-guide': closeDialog(guideDialog); break;
     case 'guide-start': closeDialog(guideDialog); setView('explore'); break;
     case 'close-shot': closeDialog(shotDialog); break;
+    case 'close-photo': closeDialog(photoDialog); break;
     case 'start-walk': updateStep(0); break;
     case 'back-detail': state.step = null; renderDetail(); shotDialog.scrollTop = 0; $(`[data-mode="${state.mode}"]`).focus({ preventScroll: true }); break;
     case 'next-step': updateStep(Math.min(4, state.step + 1)); break;
@@ -252,8 +314,13 @@ document.addEventListener('click', event => {
   }
 });
 
-$('#empty-reset').addEventListener('click', () => setView('explore'));
+$('#empty-reset').addEventListener('click', () => setView(state.view === 'practice' ? 'practice' : 'explore'));
 $('#scene-search').addEventListener('input', event => { state.query = event.target.value; renderCards(); });
+photoDialog.addEventListener('keydown', event => {
+  if (!['ArrowLeft', 'ArrowRight'].includes(event.key) || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+  event.preventDefault();
+  changePhoto(event.key === 'ArrowRight' ? 1 : -1);
+});
 shotDialog.addEventListener('keydown', event => {
   if (!event.target.matches('[data-mode]') || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
   event.preventDefault();
@@ -268,6 +335,12 @@ window.addEventListener('storage', event => {
   state.saved = parseSaved(event.newValue, validIds);
   renderCards();
   if (shotDialog.open && state.step === null) renderDetail();
+  if (photoDialog.open) {
+    const button = $('#photo-content [data-save]');
+    const isSaved = state.saved.includes(state.photo);
+    button.setAttribute('aria-pressed', isSaved);
+    button.innerHTML = `${icon('bookmark')}${isSaved ? '已收藏' : '收藏'}`;
+  }
 });
-renderFilters();
-renderCards();
+renderHero();
+setView('explore', false);

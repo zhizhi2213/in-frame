@@ -4,8 +4,6 @@ export const scenes = [
     category: '自然公园',
     title: '把午后藏进一片绿意',
     subtitle: '借一片绿意，让拍照像散步一样自然。',
-    image: 'images/park.jpg',
-    alt: '人物置身公园绿树与步道之间的环境人像',
     tags: ['树影留白', '散步感'],
     light: '清晨或傍晚的柔光最好；白天找开阔树荫，避开脸上的斑驳光点。',
     variants: {
@@ -55,8 +53,6 @@ export const scenes = [
     category: '浪漫海边',
     title: '让海风吹进你的相片',
     subtitle: '以海天为背景，留住被风吹过的瞬间。',
-    image: 'images/coast.jpg',
-    alt: '戴草帽的人站在海岸草地上，远处可见群山、海湾与天空的环境人像',
     tags: ['海风瞬间', '开阔留白'],
     light: '日出后或日落前的柔和侧光更舒服；避开正午刺眼反光和强风天气。',
     variants: {
@@ -106,8 +102,6 @@ export const scenes = [
     category: '城市街道',
     title: '在街角遇见温柔日常',
     subtitle: '走过一条小街，记录不经意的生活感。',
-    image: 'images/street.jpg',
-    alt: '人物位于城市人行空间，周围可见街边建筑与店面的环境人像',
     tags: ['街角线条', '生活片刻'],
     light: '上午或傍晚选整面处于柔光或阴影中的墙，避免明暗交界线切过脸。',
     variants: {
@@ -157,8 +151,6 @@ export const scenes = [
     category: '山野旅行',
     title: '把自己放进层叠山色',
     subtitle: '远山、微风和你，都是旅途的一部分。',
-    image: 'images/mountain.jpg',
-    alt: '人物站在山间步道或观景区域，背景为远山的环境人像',
     tags: ['远山层次', '旅途停顿'],
     light: '白天薄云下的散射光或傍晚柔光适合拍摄；优先保证能在天黑前安全返回。',
     variants: {
@@ -208,8 +200,6 @@ export const scenes = [
     category: '建筑空间',
     title: '沿着光影走进建筑里',
     subtitle: '让线条与光影，成为你的天然画框。',
-    image: 'images/architecture.jpg',
-    alt: '人物置身具有墙面、廊柱或几何线条的建筑空间中的环境人像',
     tags: ['几何线条', '光影秩序'],
     light: '选门廊或大窗旁的柔和侧光，人物脸上保持均匀亮度，避开顶灯直压眼窝。',
     variants: {
@@ -259,8 +249,6 @@ export const scenes = [
     category: '日常咖啡',
     title: '留一口咖啡慢慢入镜',
     subtitle: '一杯咖啡的时间，拍下温暖的日常。',
-    image: 'images/cafe.jpg',
-    alt: '人物坐在咖啡馆桌边，周围可见窗光与室内陈设的环境人像',
     tags: ['窗边柔光', '安静日常'],
     light: '白天坐在窗边柔光处，避免阳光直晒脸；光线暗时换亮座位，不默认使用闪光灯。',
     variants: {
