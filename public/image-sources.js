@@ -26,6 +26,14 @@ export const albums = {
   duskmirror: {
     title: '我与暮色 互为倒影', author: '橙七y',
     sourceUrl: 'http://www.cnu.cc/works/684452', authorUrl: 'http://www.cnu.cc/users/1893810'
+  },
+  qinghuang: {
+    title: '问青黄', author: 'BA',
+    sourceUrl: 'http://www.cnu.cc/works/684474', authorUrl: 'http://www.cnu.cc/users/2010831'
+  },
+  unsaid: {
+    title: '我擅长感受，却拙于表达。', author: '爱拍照的机器猫',
+    sourceUrl: 'http://www.cnu.cc/works/684482', authorUrl: 'http://www.cnu.cc/users/2009983'
   }
 };
 
@@ -134,5 +142,15 @@ export const imageSources = {
     album: 'duskmirror', index: 2, image: 'images/study-easel-sunset.jpg',
     previewUrl: 'http://imgoss.cnu.cc/2610/27/jsqbbyhdo79c0qha6sv1793091387532.jpg?x-oss-process=style/content',
     width: 920, height: 613, sourceWidth: 3762, sourceHeight: 2508
+  },
+  'study-orchard-fence': {
+    album: 'qinghuang', index: 3, image: 'images/study-orchard-fence.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2610/28/1f8e11b481583d4a8b9878a759c82d48.jpg?x-oss-process=style/content',
+    width: 920, height: 610, sourceWidth: 3130, sourceHeight: 2075
+  },
+  'study-bench-seated': {
+    album: 'unsaid', index: 1, image: 'images/study-bench-seated.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2610/29/17ba644b5f4e3d5d9512efe5e848ff33.jpg?x-oss-process=style/content',
+    width: 920, height: 1379, sourceWidth: 2732, sourceHeight: 4096
   }
 };
