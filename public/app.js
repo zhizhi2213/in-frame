@@ -6,7 +6,7 @@ import { sourceRights, rightsNote, imagePresentation, practiceDisclosure } from 
 const $ = selector => document.querySelector(selector);
 const icon = name => `<svg class="icon" aria-hidden="true"><use href="#i-${name}"/></svg>`;
 const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
-const sceneIcons = { park: 'tree', coast: 'wave', street: 'street', mountain: 'mountain', architecture: 'arch', cafe: 'cup' };
+const sceneIcons = { park: 'tree', coast: 'wave', street: 'street', mountain: 'mountain', architecture: 'arch', cafe: 'cup', field: 'flower' };
 const modeIcons = { landscape: 'grid', portrait: 'person', interaction: 'camera' };
 const storageKey = 'in-frame:saved-scenes:v1';
 const validIds = [...scenes, ...photos].map(item => item.id);
@@ -80,7 +80,7 @@ function setView(view, shouldScroll = true) {
   });
   const headings = {
     explore: ['ONE PHOTO, ONE LESSON', '一张照片，学会一个小方法。', '不是刷过就算。看看人在哪里、光从哪里来，再带着一个动作去练习。'],
-    practice: ['TAKE IT INTO THE FIELD', '看懂以后，带着步骤出门。', '6 个日常场景，18 种独立练习；手绘示意不代表原作机位，也不是原作复刻。'],
+    practice: ['TAKE IT INTO THE FIELD', '看懂以后，带着步骤出门。', '7 个日常场景，21 种独立练习；手绘示意不代表原作机位，也不是原作复刻。'],
     saved: ['YOUR PERSONAL STUDY SHELF', '值得再看一遍的，都在这里。', '照片精读与跟拍场景一起收藏，仅保存在当前浏览器。']
   };
   const [eyebrow, title, description] = headings[view];
@@ -170,6 +170,7 @@ function background(sceneId) {
     street: '<path d="M14 26h102v164L14 224z" fill="#d2baa2"/><path d="m320 26 86 0v198l-86-34z" fill="#dacbb1"/><path d="m116 190 94-56 110 56 86 34H14z" fill="#d2cdbd"/><g fill="#a99780"><path d="M34 52h23v36H34zm41 0h23v36H75zm-41 64h23v36H34zm41 0h23v36H75zM342 61h23v35h-23zm0 63h23v35h-23z"/></g><path d="M210 134v90m0-90L83 224m127-90 128 90" fill="none" stroke="#b8b5a4"/>',
     mountain: '<path d="m14 167 86-88 60 51 85-81 90 84 71-46v137H14z" fill="#b2c2b0"/><path d="m14 195 114-71 65 33 89-52 124 73v46H14" fill="#91a68d"/><path d="M14 204q133-64 249-19t143 14v25H14z" fill="#c4ccab"/><path d="m159 224 54-39 15 2-27 37" fill="#e2d7b9"/>',
     architecture: '<path d="M14 26h392v198H14z" fill="#dfd0b3"/><path d="M32 224V102a52 52 0 0 1 104 0v122m21 0V92a52 52 0 0 1 104 0v132m22 0V82a52 52 0 0 1 104 0v142" fill="#bcb699" stroke="#e9dfc7" stroke-width="12"/><path d="M14 208h392v16H14z" fill="#d4c5a4"/><path d="m66 224 71-56v56m109 0 24-35v35m78 0 41-58v58" fill="#e8ddc2"/>',
+    field: '<path d="M14 26h392v112H14z" fill="#d9dfc8"/><path d="m14 138 90-52 76 44 88-58 138 78H14z" fill="#bcc69c"/><path d="M14 156h392v68H14z" fill="#c9bd8b"/><path d="M14 172h392v52H14z" fill="#b9a874"/><g fill="#c67b55"><circle cx="52" cy="190" r="4"/><circle cx="118" cy="203" r="4"/><circle cx="186" cy="188" r="4"/><circle cx="254" cy="206" r="4"/><circle cx="322" cy="191" r="4"/><circle cx="382" cy="203" r="4"/></g><g fill="#b25c3f"><circle cx="85" cy="207" r="3"/><circle cx="151" cy="196" r="3"/><circle cx="219" cy="210" r="3"/><circle cx="288" cy="197" r="3"/><circle cx="353" cy="210" r="3"/></g>',
     cafe: '<path d="M14 26h392v198H14z" fill="#ded4b9"/><rect x="33" y="41" width="109" height="111" rx="3" fill="#b5c4af" stroke="#b8ab8d" stroke-width="6"/><path d="M87 42v109M34 97h106" stroke="#eae6cc" stroke-width="4"/><path d="M14 191h392v33H14" fill="#c6b593"/><path d="M332 183v-55m-15 25 15 14 21-25" stroke="#8a9c79" stroke-width="4"/><path d="M316 180h34l-7 26h-21z" fill="#a88c6d"/>'
   };
   return art[sceneId];
@@ -194,7 +195,7 @@ function compositionDiagram(scene, mode) {
 }
 
 function diagramPanel(scene, variant) {
-  return `<div><div class="diagram-wrap"><div class="diagram-label">${icon('focus')} 构图 & 站位图解<span>非实景测量</span></div>${compositionDiagram(scene, state.mode)}<p class="diagram-caption"><strong>画面这样留：</strong>${escape(variant.composition)}</p></div><p class="light-note">${icon('sun')}${escape(scene.light)}</p><p class="safety-note">安全小提醒 · ${escape(variant.safety)}</p></div>`;
+  return `<div><div class="diagram-wrap"><div class="diagram-label">${icon('focus')} 构图 & 站位图解<span>非实景测量</span></div>${compositionDiagram(scene, state.mode)}<p class="diagram-caption"><strong>画面这样留：</strong>${escape(variant.composition)}</p></div><p class="light-note">${icon('sun')}${escape(scene.light)}</p>${scene.time ? `<p class="light-note">${icon('clock')}${escape(scene.time)}</p>` : ''}${scene.outfit ? `<p class="light-note">${icon('shirt')}${escape(scene.outfit)}</p>` : ''}<p class="safety-note">安全小提醒 · ${escape(variant.safety)}</p></div>`;
 }
 
 function stats(variant) {

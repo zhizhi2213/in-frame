@@ -31,9 +31,9 @@ function deepFreeze(value) {
   return value;
 }
 
-test('six distinct scenes provide all eighteen complete shooting guides', () => {
-  assert.deepEqual(ids, ['park', 'coast', 'street', 'mountain', 'architecture', 'cafe']);
-  assert.equal(new Set(ids).size, 6);
+test('seven distinct scenes provide all twenty-one complete shooting guides', () => {
+  assert.deepEqual(ids, ['park', 'coast', 'street', 'mountain', 'architecture', 'field', 'cafe']);
+  assert.equal(new Set(ids).size, 7);
   assert.deepEqual(modes.map(mode => mode.id), ['landscape', 'portrait', 'interaction']);
   for (const scene of scenes) {
     assert.equal(scene.tags.length, 2);
@@ -50,9 +50,9 @@ test('six distinct scenes provide all eighteen complete shooting guides', () => 
   }
 });
 
-test('sixteen photos have independent close readings instead of scene references', () => {
-  assert.equal(photos.length, 16);
-  assert.equal(new Set(photoIds).size, 16);
+test('twenty photos have independent close readings instead of scene references', () => {
+  assert.equal(photos.length, 20);
+  assert.equal(new Set(photoIds).size, 20);
   assert.deepEqual(Object.keys(imageSources).sort(), [...photoIds].sort());
   for (const scene of scenes) {
     assert.equal(Object.hasOwn(scene, 'image'), false, scene.id);
@@ -71,13 +71,13 @@ test('sixteen photos have independent close readings instead of scene references
     assert.equal(new Set([photo.observation, photo.composition, photo.light, photo.pose]).size, 4, photo.id);
   }
   for (const key of ['title', 'takeaway', 'alt', 'observation', 'composition', 'light', 'pose']) {
-    assert.equal(new Set(photos.map(photo => photo[key])).size, 16, `${key} must be image-specific`);
+    assert.equal(new Set(photos.map(photo => photo[key])).size, 20, `${key} must be image-specific`);
   }
 });
 
 test('each photo has its own complete three-step shooting exercise', () => {
-  assert.equal(new Set(photos.map(photo => photo.exercise)).size, 16);
-  assert.equal(new Set(photos.map(photo => photo.exercise.steps)).size, 16);
+  assert.equal(new Set(photos.map(photo => photo.exercise)).size, 20);
+  assert.equal(new Set(photos.map(photo => photo.exercise.steps)).size, 20);
   for (const photo of photos) {
     for (const key of ['position', 'camera', 'direction', 'check', 'avoid']) {
       assertText(photo.exercise[key], `${photo.id}/exercise/${key}`);
@@ -89,16 +89,16 @@ test('each photo has its own complete three-step shooting exercise', () => {
     for (const step of photo.exercise.steps) assertText(step, `${photo.id}/exercise/step`);
   }
   for (const key of ['position', 'camera', 'steps', 'direction', 'check', 'avoid']) {
-    assert.equal(new Set(photos.map(photo => JSON.stringify(photo.exercise[key]))).size, 16, `${key} must be image-specific`);
+    assert.equal(new Set(photos.map(photo => JSON.stringify(photo.exercise[key]))).size, 20, `${key} must be image-specific`);
   }
 });
 
-test('sixteen distinct sources credit five authors with safe CNU URLs and original sequence numbers', () => {
+test('twenty distinct sources credit seven authors with safe CNU URLs and original sequence numbers', () => {
   const albumEntries = Object.entries(albums);
-  assert.equal(albumEntries.length, 5);
-  assert.equal(new Set(albumEntries.map(([, album]) => album.author)).size, 5);
-  assert.equal(new Set(albumEntries.map(([, album]) => album.sourceUrl)).size, 5);
-  assert.equal(new Set(albumEntries.map(([, album]) => album.authorUrl)).size, 5);
+  assert.equal(albumEntries.length, 7);
+  assert.equal(new Set(albumEntries.map(([, album]) => album.author)).size, 7);
+  assert.equal(new Set(albumEntries.map(([, album]) => album.sourceUrl)).size, 7);
+  assert.equal(new Set(albumEntries.map(([, album]) => album.authorUrl)).size, 7);
   assert.deepEqual([...new Set(photos.map(photo => photo.source.album))].sort(), Object.keys(albums).sort());
   for (const [id, album] of albumEntries) {
     for (const key of ['title', 'author']) assertText(album[key], `${id}/${key}`);
@@ -122,9 +122,9 @@ test('sixteen distinct sources credit five authors with safe CNU URLs and origin
       assert.ok(Number.isInteger(source[key]) && source[key] > 0, `${photo.id}/${key}`);
     }
   }
-  assert.equal(new Set(photos.map(photo => `${photo.album.sourceUrl}#${photo.source.index}`)).size, 16);
+  assert.equal(new Set(photos.map(photo => `${photo.album.sourceUrl}#${photo.source.index}`)).size, 20);
   for (const key of ['image', 'previewUrl']) {
-    assert.equal(new Set(photos.map(photo => photo.source[key])).size, 16, key);
+    assert.equal(new Set(photos.map(photo => photo.source[key])).size, 20, key);
   }
 });
 
@@ -148,7 +148,7 @@ test('rights retain attribution without claiming CC0, a license version, or veri
   assert.match(practiceDisclosure, /不推断实际焦距/);
 });
 
-test('all sixteen local JPEGs are distinct, under 1.5 MB, and match metadata within one-pixel scaling', async () => {
+test('all twenty local JPEGs are distinct, under 1.5 MB, and match metadata within one-pixel scaling', async () => {
   const hashes = new Set();
   for (const photo of photos) {
     const source = photo.source;
@@ -179,17 +179,17 @@ test('all sixteen local JPEGs are distinct, under 1.5 MB, and match metadata wit
     assert.ok(Math.abs(source.width - source.sourceWidth * scale) <= 1, `${photo.id}: uncropped width`);
     assert.ok(Math.abs(source.height - source.sourceHeight * scale) <= 1, `${photo.id}: uncropped height`);
   }
-  assert.equal(hashes.size, 16, 'each study uses a different JPEG');
+  assert.equal(hashes.size, 20, 'each study uses a different JPEG');
 });
 
 test('scene selection defaults to all, supports filters, search, and their intersection', () => {
-  assert.equal(selectScenes(scenes).length, 6);
+  assert.equal(selectScenes(scenes).length, 7);
   assert.deepEqual(selectScenes(scenes, { category: 'coast' }).map(scene => scene.id), ['coast']);
   assert.deepEqual(selectScenes(scenes, { query: '  咖啡  ' }).map(scene => scene.id), ['cafe']);
   assert.equal(selectScenes(scenes, { category: 'coast', query: '咖啡' }).length, 0);
   assert.equal(selectScenes(scenes, { query: '完全不存在的场景' }).length, 0);
   assert.ok(selectScenes(scenes, { query: '包带' }).length > 0);
-  assert.equal(selectScenes(scenes, { query: '   ' }).length, 6);
+  assert.equal(selectScenes(scenes, { query: '   ' }).length, 7);
 });
 
 test('saved view only includes saved scenes and respects filters', () => {
