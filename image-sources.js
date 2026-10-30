@@ -18,11 +18,19 @@ export const albums = {
   diner: {
     title: '失乐园·香港九龙茶餐厅', author: '卡卡色彩美学',
     sourceUrl: 'http://www.cnu.cc/works/684433', authorUrl: 'http://www.cnu.cc/users/1083246'
+  },
+  sunflower: {
+    title: '夜晚的向日葵', author: '周大豪ZH',
+    sourceUrl: 'http://www.cnu.cc/works/684436', authorUrl: 'http://www.cnu.cc/users/1876380'
+  },
+  duskmirror: {
+    title: '我与暮色 互为倒影', author: '橙七y',
+    sourceUrl: 'http://www.cnu.cc/works/684452', authorUrl: 'http://www.cnu.cc/users/1893810'
   }
 };
 
 export const sourceRights = '原创，CC协议共享(署名)';
-export const rightsNote = '原作品页版权栏标注如上，核对日期：2026-10-29；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。';
+export const rightsNote = '原作品页版权栏标注如上，核对日期：2026-10-29 与 2026-10-30；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。';
 export const imagePresentation = '使用 CNU 作品页提供的数字预览，保留完整画幅与原有色彩，不做 AI 生成、重绘或裁切；并非相机 RAW 或原始高分辨率文件。';
 export const practiceDisclosure = '解析是本站基于可见画面的学习解读，练习步骤为本站建议；未核实原作 EXIF，不推断实际焦距、快门、光圈、补光设备或后期流程。';
 
@@ -106,5 +114,25 @@ export const imageSources = {
     album: 'quiet', index: 1, image: 'images/study-hands.jpg',
     previewUrl: 'http://imgoss.cnu.cc/2610/18/85b29dac373e33e9b737824605f5ebaa.jpg?x-oss-process=style/content',
     width: 920, height: 1380, sourceWidth: 1333, sourceHeight: 2000
+  },
+  'study-sunflower-dusk': {
+    album: 'sunflower', index: 1, image: 'images/study-sunflower-dusk.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2610/26/o2l58z3y5eq4qm7lr841793021768721.jpg?x-oss-process=style/content',
+    width: 920, height: 1383, sourceWidth: 4024, sourceHeight: 6048
+  },
+  'study-riverbank-bouquet': {
+    album: 'sunflower', index: 4, image: 'images/study-riverbank-bouquet.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2610/26/nzra7t89yhx90j7n2711793021768723.jpg?x-oss-process=style/content',
+    width: 920, height: 1383, sourceWidth: 4024, sourceHeight: 6048
+  },
+  'study-easel-mirror': {
+    album: 'duskmirror', index: 1, image: 'images/study-easel-mirror.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2610/27/3kxisfed9rxyawfnvuu1793091387531.jpg?x-oss-process=style/content',
+    width: 920, height: 1380, sourceWidth: 2508, sourceHeight: 3762
+  },
+  'study-easel-sunset': {
+    album: 'duskmirror', index: 2, image: 'images/study-easel-sunset.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2610/27/jsqbbyhdo79c0qha6sv1793091387532.jpg?x-oss-process=style/content',
+    width: 920, height: 613, sourceWidth: 3762, sourceHeight: 2508
   }
 };
