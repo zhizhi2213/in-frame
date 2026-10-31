@@ -34,11 +34,19 @@ export const albums = {
   unsaid: {
     title: '我擅长感受，却拙于表达。', author: '爱拍照的机器猫',
     sourceUrl: 'http://www.cnu.cc/works/684482', authorUrl: 'http://www.cnu.cc/users/2009983'
+  },
+  seaside: {
+    title: '海边半日', author: '关耳朵',
+    sourceUrl: 'http://www.cnu.cc/works/683864', authorUrl: 'http://www.cnu.cc/users/1816073'
+  },
+  qisha: {
+    title: '【栖沙】', author: '谨通Narcissus',
+    sourceUrl: 'http://www.cnu.cc/works/684193', authorUrl: 'http://www.cnu.cc/users/1396752'
   }
 };
 
 export const sourceRights = '原创，CC协议共享(署名)';
-export const rightsNote = '原作品页版权栏标注如上，核对日期：2026-10-29 与 2026-10-30；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。';
+export const rightsNote = '原作品页版权栏标注如上，核对日期：2026-10-29、2026-10-30 与 2026-10-31；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。';
 export const imagePresentation = '使用 CNU 作品页提供的数字预览，保留完整画幅与原有色彩，不做 AI 生成、重绘或裁切；并非相机 RAW 或原始高分辨率文件。';
 export const practiceDisclosure = '解析是本站基于可见画面的学习解读，练习步骤为本站建议；未核实原作 EXIF，不推断实际焦距、快门、光圈、补光设备或后期流程。';
 
@@ -152,5 +160,15 @@ export const imageSources = {
     album: 'unsaid', index: 1, image: 'images/study-bench-seated.jpg',
     previewUrl: 'http://imgoss.cnu.cc/2610/29/17ba644b5f4e3d5d9512efe5e848ff33.jpg?x-oss-process=style/content',
     width: 920, height: 1379, sourceWidth: 2732, sourceHeight: 4096
+  },
+  'study-sea-railing': {
+    album: 'seaside', index: 1, image: 'images/study-sea-railing.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2610/02/0rlr46soen0tfamfecq1790954263409.jpg?x-oss-process=style/content',
+    width: 920, height: 1377, sourceWidth: 1080, sourceHeight: 1616
+  },
+  'study-dune-dusk': {
+    album: 'qisha', index: 1, image: 'images/study-dune-dusk.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2610/16/1c9c63768026360a92056556f4464753.jpg?x-oss-process=style/content',
+    width: 920, height: 1380, sourceWidth: 2000, sourceHeight: 3000
   }
 };
