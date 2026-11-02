@@ -1,7 +1,7 @@
 import { scenes, modes } from './data.js';
 import { photos } from './photos.js';
 import { selectScenes, selectPhotos, parseSaved, toggleSaved } from './model.js';
-import { sourceRights, rightsNote, imagePresentation, practiceDisclosure } from './image-sources.js';
+import { sourceMeta, practiceDisclosure } from './image-sources.js';
 
 const $ = selector => document.querySelector(selector);
 const icon = name => `<svg class="icon" aria-hidden="true"><use href="#i-${name}"/></svg>`;
@@ -25,14 +25,15 @@ let toastTimer;
 let opener;
 
 function photoCredit(photo, full = false) {
-  return `<div class="photo-credit"><p class="credit-author">摄影 / ${escape(photo.album.author)}</p><p><cite>《${escape(photo.album.title)}》</cite> · 原图集第 ${photo.source.index} 张</p><div class="credit-links"><a href="${escape(photo.album.sourceUrl)}" target="_blank" rel="noopener noreferrer">CNU 原作品 ↗</a>${full ? `<a href="${escape(photo.album.authorUrl)}" target="_blank" rel="noopener noreferrer">作者主页 ↗</a><a href="${escape(photo.source.previewUrl)}" target="_blank" rel="noopener noreferrer">原站数字预览 ↗</a>` : ''}</div><p class="credit-rights">原站声明：${escape(sourceRights)}</p>${full ? `<details class="source-policy"><summary>来源与使用说明</summary><p class="credit-note">${escape(rightsNote)}</p><p class="credit-note">${escape(imagePresentation)}</p></details>` : ''}</div>`;
+  const meta = sourceMeta[photo.album.source] ?? sourceMeta.cnu;
+  return `<div class="photo-credit"><p class="credit-author">摄影 / ${escape(photo.album.author)}</p><p><cite>《${escape(photo.album.title)}》</cite> · 原图集第 ${photo.source.index} 张</p><div class="credit-links"><a href="${escape(photo.album.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escape(meta.workLabel)} ↗</a>${full ? `<a href="${escape(photo.album.authorUrl)}" target="_blank" rel="noopener noreferrer">作者主页 ↗</a><a href="${escape(photo.source.previewUrl)}" target="_blank" rel="noopener noreferrer">原站数字预览 ↗</a>` : ''}</div><p class="credit-rights">原站声明：${escape(meta.rights)}</p>${full ? `<details class="source-policy"><summary>来源与使用说明</summary><p class="credit-note">${escape(meta.note)}</p><p class="credit-note">${escape(meta.presentation)}</p></details>` : ''}</div>`;
 }
 
 function renderHero() {
   const photo = photos[0];
   $('#hero-artwork').innerHTML = `<span class="artwork-label">本期精读 01 / 人在风景里，而不只是站在风景前</span><button class="hero-photo-frame" data-photo="${photo.id}" aria-label="精读：${escape(photo.title)}"><img class="hero-photo" src="${photo.source.image}" alt="${escape(photo.alt)}" width="${photo.source.width}" height="${photo.source.height}" fetchpriority="high"></button><figcaption>${photoCredit(photo)}</figcaption><button class="hero-practice" data-photo="${photo.id}">为什么人站在这里，照片就好看？ ${icon('arrow')}</button>`;
   $('#photo-total').textContent = String(photos.length).padStart(2, '0');
-  $('#image-presentation').textContent = imagePresentation;
+  $('#image-presentation').textContent = sourceMeta[photo.album.source]?.presentation ?? sourceMeta.cnu.presentation;
   $('#practice-disclosure').textContent = practiceDisclosure;
 }
 

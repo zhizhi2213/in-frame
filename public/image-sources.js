@@ -1,53 +1,88 @@
 export const albums = {
   quiet: {
+    source: 'cnu',
     title: '清寂之年', author: '微醺十月',
     sourceUrl: 'http://www.cnu.cc/works/684236', authorUrl: 'http://www.cnu.cc/users/129929'
   },
   linan: {
+    source: 'cnu',
     title: '临安旧夢。', author: '乌蛮的樹',
     sourceUrl: 'http://www.cnu.cc/works/684305', authorUrl: 'http://www.cnu.cc/users/949443'
   },
   mountains: {
+    source: 'cnu',
     title: '心事归于山野.', author: '小钟Kunal',
     sourceUrl: 'http://www.cnu.cc/works/684335', authorUrl: 'http://www.cnu.cc/users/1272386'
   },
   sunshine: {
+    source: 'cnu',
     title: '太阳照着你好温柔', author: 'Lansh蓝',
     sourceUrl: 'http://www.cnu.cc/works/684469', authorUrl: 'http://www.cnu.cc/users/1028490'
   },
   diner: {
+    source: 'cnu',
     title: '失乐园·香港九龙茶餐厅', author: '卡卡色彩美学',
     sourceUrl: 'http://www.cnu.cc/works/684433', authorUrl: 'http://www.cnu.cc/users/1083246'
   },
   sunflower: {
+    source: 'cnu',
     title: '夜晚的向日葵', author: '周大豪ZH',
     sourceUrl: 'http://www.cnu.cc/works/684436', authorUrl: 'http://www.cnu.cc/users/1876380'
   },
   duskmirror: {
+    source: 'cnu',
     title: '我与暮色 互为倒影', author: '橙七y',
     sourceUrl: 'http://www.cnu.cc/works/684452', authorUrl: 'http://www.cnu.cc/users/1893810'
   },
   qinghuang: {
+    source: 'cnu',
     title: '问青黄', author: 'BA',
     sourceUrl: 'http://www.cnu.cc/works/684474', authorUrl: 'http://www.cnu.cc/users/2010831'
   },
   unsaid: {
+    source: 'cnu',
     title: '我擅长感受，却拙于表达。', author: '爱拍照的机器猫',
     sourceUrl: 'http://www.cnu.cc/works/684482', authorUrl: 'http://www.cnu.cc/users/2009983'
   },
   seaside: {
+    source: 'cnu',
     title: '海边半日', author: '关耳朵',
     sourceUrl: 'http://www.cnu.cc/works/683864', authorUrl: 'http://www.cnu.cc/users/1816073'
   },
   qisha: {
+    source: 'cnu',
     title: '【栖沙】', author: '谨通Narcissus',
     sourceUrl: 'http://www.cnu.cc/works/684193', authorUrl: 'http://www.cnu.cc/users/1396752'
+  },
+  cobblestone: {
+    source: 'flickr',
+    title: 'guys in black', author: 'Sergei F',
+    sourceUrl: 'https://www.flickr.com/photos/dva41/46153924835', authorUrl: 'https://www.flickr.com/photos/dva41'
+  },
+  victory: {
+    source: 'flickr',
+    title: 'Victory · Zurich Switzerland', author: 'Thomas8047',
+    sourceUrl: 'https://www.flickr.com/photos/93482748@N02/30294923634', authorUrl: 'https://www.flickr.com/photos/93482748@N02'
   }
 };
 
-export const sourceRights = '原创，CC协议共享(署名)';
-export const rightsNote = '原作品页版权栏标注如上，核对日期：2026-10-29、2026-10-30 与 2026-10-31；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。';
-export const imagePresentation = '使用 CNU 作品页提供的数字预览，保留完整画幅与原有色彩，不做 AI 生成、重绘或裁切；并非相机 RAW 或原始高分辨率文件。';
+export const sourceMeta = {
+  cnu: {
+    name: 'CNU视觉联盟',
+    workLabel: 'CNU 原作品',
+    rights: '原创，CC协议共享(署名)',
+    note: '原作品页版权栏标注如上，核对日期：2026-10-29、2026-10-30 与 2026-10-31；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
+    presentation: '使用 CNU 作品页提供的数字预览，保留完整画幅与原有色彩，不做 AI 生成、重绘或裁切；并非相机 RAW 或原始高分辨率文件。'
+  },
+  flickr: {
+    name: 'Flickr',
+    workLabel: 'Flickr 原作品',
+    rights: 'CC BY 2.0（署名）',
+    note: '原作品页标注的授权为 CC BY 2.0（署名），核对日期：2026-11-02。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
+    presentation: '使用 Flickr 提供的 1600 宽 JPEG，保留完整画幅与原有影调，不做 AI 生成、重绘或裁切；并非原始高分辨率文件。'
+  }
+};
+
 export const practiceDisclosure = '解析是本站基于可见画面的学习解读，练习步骤为本站建议；未核实原作 EXIF，不推断实际焦距、快门、光圈、补光设备或后期流程。';
 
 export const imageSources = {
@@ -170,5 +205,15 @@ export const imageSources = {
     album: 'qisha', index: 1, image: 'images/study-dune-dusk.jpg',
     previewUrl: 'http://imgoss.cnu.cc/2610/16/1c9c63768026360a92056556f4464753.jpg?x-oss-process=style/content',
     width: 920, height: 1380, sourceWidth: 2000, sourceHeight: 3000
+  },
+  'study-cobblestone-duo': {
+    album: 'cobblestone', index: 1, image: 'images/study-cobblestone-duo.jpg',
+    previewUrl: 'https://live.staticflickr.com/7865/46153924835_2e03abdf9f_h.jpg',
+    width: 1600, height: 1200, sourceWidth: 4032, sourceHeight: 3024
+  },
+  'study-victory-gesture': {
+    album: 'victory', index: 1, image: 'images/study-victory-gesture.jpg',
+    previewUrl: 'https://live.staticflickr.com/5784/30294923634_cf40775b1d_h.jpg',
+    width: 1600, height: 1132, sourceWidth: 2852, sourceHeight: 2017
   }
 };

@@ -4,7 +4,7 @@ import { stat, readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { scenes, modes } from '../public/data.js';
 import { photos } from '../public/photos.js';
-import { albums, imageSources, sourceRights, rightsNote, imagePresentation, practiceDisclosure } from '../public/image-sources.js';
+import { albums, imageSources, sourceMeta, practiceDisclosure } from '../public/image-sources.js';
 import { selectScenes, selectPhotos, parseSaved, toggleSaved } from '../public/model.js';
 import { createAppServer } from '../server.js';
 
@@ -50,9 +50,9 @@ test('seven distinct scenes provide all twenty-one complete shooting guides', ()
   }
 });
 
-test('twenty-four photos have independent close readings instead of scene references', () => {
-  assert.equal(photos.length, 24);
-  assert.equal(new Set(photoIds).size, 24);
+test('twenty-six photos have independent close readings instead of scene references', () => {
+  assert.equal(photos.length, 26);
+  assert.equal(new Set(photoIds).size, 26);
   assert.deepEqual(Object.keys(imageSources).sort(), [...photoIds].sort());
   for (const scene of scenes) {
     assert.equal(Object.hasOwn(scene, 'image'), false, scene.id);
@@ -71,13 +71,13 @@ test('twenty-four photos have independent close readings instead of scene refere
     assert.equal(new Set([photo.observation, photo.composition, photo.light, photo.pose]).size, 4, photo.id);
   }
   for (const key of ['title', 'takeaway', 'alt', 'observation', 'composition', 'light', 'pose']) {
-    assert.equal(new Set(photos.map(photo => photo[key])).size, 24, `${key} must be image-specific`);
+    assert.equal(new Set(photos.map(photo => photo[key])).size, 26, `${key} must be image-specific`);
   }
 });
 
 test('each photo has its own complete three-step shooting exercise', () => {
-  assert.equal(new Set(photos.map(photo => photo.exercise)).size, 24);
-  assert.equal(new Set(photos.map(photo => photo.exercise.steps)).size, 24);
+  assert.equal(new Set(photos.map(photo => photo.exercise)).size, 26);
+  assert.equal(new Set(photos.map(photo => photo.exercise.steps)).size, 26);
   for (const photo of photos) {
     for (const key of ['position', 'camera', 'direction', 'check', 'avoid']) {
       assertText(photo.exercise[key], `${photo.id}/exercise/${key}`);
@@ -89,22 +89,40 @@ test('each photo has its own complete three-step shooting exercise', () => {
     for (const step of photo.exercise.steps) assertText(step, `${photo.id}/exercise/step`);
   }
   for (const key of ['position', 'camera', 'steps', 'direction', 'check', 'avoid']) {
-    assert.equal(new Set(photos.map(photo => JSON.stringify(photo.exercise[key]))).size, 24, `${key} must be image-specific`);
+    assert.equal(new Set(photos.map(photo => JSON.stringify(photo.exercise[key]))).size, 26, `${key} must be image-specific`);
   }
 });
 
-test('twenty-four distinct sources credit eleven authors with safe CNU URLs and original sequence numbers', () => {
+test('twenty-six distinct sources credit thirteen authors with safe source URLs and original sequence numbers', () => {
   const albumEntries = Object.entries(albums);
-  assert.equal(albumEntries.length, 11);
-  assert.equal(new Set(albumEntries.map(([, album]) => album.author)).size, 11);
-  assert.equal(new Set(albumEntries.map(([, album]) => album.sourceUrl)).size, 11);
-  assert.equal(new Set(albumEntries.map(([, album]) => album.authorUrl)).size, 11);
+  assert.equal(albumEntries.length, 13);
+  assert.equal(new Set(albumEntries.map(([, album]) => album.author)).size, 13);
+  assert.equal(new Set(albumEntries.map(([, album]) => album.sourceUrl)).size, 13);
+  assert.equal(new Set(albumEntries.map(([, album]) => album.authorUrl)).size, 13);
   assert.deepEqual([...new Set(photos.map(photo => photo.source.album))].sort(), Object.keys(albums).sort());
+  const sourceRules = {
+    cnu: {
+      hosts: ['www.cnu.cc', 'cnu.cc'],
+      previewHosts: ['imgoss.cnu.cc'],
+      routes: { sourceUrl: /^\/works\/[1-9]\d*$/, authorUrl: /^\/users\/[1-9]\d*$/ },
+      previewPath: /^\/\d{4}\/\d{2}\/[a-z0-9]+\.jpg$/i,
+      previewSearch: [['x-oss-process', 'style/content']]
+    },
+    flickr: {
+      hosts: ['www.flickr.com'],
+      previewHosts: ['live.staticflickr.com'],
+      routes: { sourceUrl: /^\/photos\/[^/]+\/[1-9]\d*\/?$/, authorUrl: /^\/photos\/[^/]+\/?$/ },
+      previewPath: /^\/\d+\/\d+_[0-9a-f]+_[a-z0-9]+\.jpg$/i,
+      previewSearch: []
+    }
+  };
   for (const [id, album] of albumEntries) {
+    assert.ok(Object.hasOwn(sourceRules, album.source), `${id}/source`);
+    const rules = sourceRules[album.source];
     for (const key of ['title', 'author']) assertText(album[key], `${id}/${key}`);
-    for (const [key, route] of [['sourceUrl', 'works'], ['authorUrl', 'users']]) {
-      const url = assertSourceUrl(album[key], ['www.cnu.cc', 'cnu.cc']);
-      assert.match(url.pathname, new RegExp(`^/${route}/[1-9]\\d*$`), `${id}/${key}`);
+    for (const key of ['sourceUrl', 'authorUrl']) {
+      const url = assertSourceUrl(album[key], rules.hosts);
+      assert.match(url.pathname, rules.routes[key], `${id}/${key}`);
       assert.equal(url.search, '', `${id}/${key}`);
     }
   }
@@ -113,42 +131,46 @@ test('twenty-four distinct sources credit eleven authors with safe CNU URLs and 
     assert.equal(source, imageSources[photo.id], photo.id);
     assert.ok(Object.hasOwn(albums, source.album), photo.id);
     assert.equal(photo.album, albums[source.album], photo.id);
+    const rules = sourceRules[albums[source.album].source];
     assert.ok(Number.isInteger(source.index) && source.index > 0, photo.id);
     assert.match(source.image, /^images\/study-[a-z0-9-]+\.jpg$/, photo.id);
-    const preview = assertSourceUrl(source.previewUrl, ['imgoss.cnu.cc']);
-    assert.match(preview.pathname, /^\/\d{4}\/\d{2}\/[a-z0-9]+\.jpg$/i, photo.id);
-    assert.deepEqual([...preview.searchParams], [['x-oss-process', 'style/content']], photo.id);
+    const preview = assertSourceUrl(source.previewUrl, rules.previewHosts);
+    assert.match(preview.pathname, rules.previewPath, photo.id);
+    assert.deepEqual([...preview.searchParams], rules.previewSearch, photo.id);
     for (const key of ['width', 'height', 'sourceWidth', 'sourceHeight']) {
       assert.ok(Number.isInteger(source[key]) && source[key] > 0, `${photo.id}/${key}`);
     }
   }
-  assert.equal(new Set(photos.map(photo => `${photo.album.sourceUrl}#${photo.source.index}`)).size, 24);
+  assert.equal(new Set(photos.map(photo => `${photo.album.sourceUrl}#${photo.source.index}`)).size, 26);
   for (const key of ['image', 'previewUrl']) {
-    assert.equal(new Set(photos.map(photo => photo.source[key])).size, 24, key);
+    assert.equal(new Set(photos.map(photo => photo.source[key])).size, 26, key);
   }
 });
 
 test('rights retain attribution without claiming CC0, a license version, or verified camera settings', () => {
-  for (const [key, value] of Object.entries({ sourceRights, rightsNote, imagePresentation, practiceDisclosure })) {
-    assertText(value, key);
-  }
-  assert.match(sourceRights, /署名/);
-  assert.match(sourceRights, /CC/);
-  assert.doesNotMatch(sourceRights, /CC\s*0|\d+(?:\.\d+)?|公有领域|公共领域/i);
-  assert.match(rightsNote, /未注明具体\s*CC\s*版本/i);
-  assert.match(rightsNote, /不等同于\s*CC\s*0/i);
-  assert.match(rightsNote, /署名和原作链接/);
-  assert.match(rightsNote, /不代表.*额外授权/);
-  const licenseClaims = `${sourceRights} ${rightsNote.replace(/不等同于\s*CC\s*0/gi, '')}`;
-  assert.doesNotMatch(licenseClaims, /CC\s*0|\bCC(?:[\s-]+BY)?(?:[\s-]+(?:NC|ND|SA))*[\s-]*[1-9](?:\.\d+)?|creativecommons\.org\/(?:licenses|publicdomain)\//i);
-  assert.match(imagePresentation, /保留完整画幅与原有色彩/);
-  assert.match(imagePresentation, /不做.*AI.*裁切/);
+  assertText(practiceDisclosure, 'practiceDisclosure');
   assert.match(practiceDisclosure, /练习步骤为本站建议/);
   assert.match(practiceDisclosure, /未核实原作\s*EXIF/i);
   assert.match(practiceDisclosure, /不推断实际焦距/);
+  for (const [id, meta] of Object.entries(sourceMeta)) {
+    for (const key of ['name', 'workLabel', 'rights', 'note', 'presentation']) assertText(meta[key], `${id}/${key}`);
+    assert.match(meta.rights, /署名/);
+    assert.match(meta.rights, /CC/);
+    assert.match(meta.note, /署名和原作链接/);
+    assert.match(meta.note, /不代表.*额外授权/);
+    assert.match(meta.presentation, /保留完整画幅/);
+    assert.match(meta.presentation, /不做.*裁切/);
+  }
+  const cnu = sourceMeta.cnu;
+  assert.doesNotMatch(cnu.rights, /CC\s*0|\d+(?:\.\d+)?|公有领域|公共领域/i);
+  assert.match(cnu.note, /未注明具体\s*CC\s*版本/i);
+  assert.match(cnu.note, /不等同于\s*CC\s*0/i);
+  const licenseClaims = `${cnu.rights} ${cnu.note.replace(/不等同于\s*CC\s*0/gi, '')}`;
+  assert.doesNotMatch(licenseClaims, /CC\s*0|\bCC(?:[\s-]+BY)?(?:[\s-]+(?:NC|ND|SA))*[\s-]*[1-9](?:\.\d+)?|creativecommons\.org\/(?:licenses|publicdomain)\//i);
+  assert.match(sourceMeta.flickr.rights, /CC\s*BY\s*2\.0/);
 });
 
-test('all twenty-four local JPEGs are distinct, under 1.5 MB, and match metadata within one-pixel scaling', async () => {
+test('all twenty-six local JPEGs are distinct, under 1.5 MB, and match metadata within one-pixel scaling', async () => {
   const hashes = new Set();
   for (const photo of photos) {
     const source = photo.source;
@@ -179,7 +201,7 @@ test('all twenty-four local JPEGs are distinct, under 1.5 MB, and match metadata
     assert.ok(Math.abs(source.width - source.sourceWidth * scale) <= 1, `${photo.id}: uncropped width`);
     assert.ok(Math.abs(source.height - source.sourceHeight * scale) <= 1, `${photo.id}: uncropped height`);
   }
-  assert.equal(hashes.size, 24, 'each study uses a different JPEG');
+  assert.equal(hashes.size, 26, 'each study uses a different JPEG');
 });
 
 test('scene selection defaults to all, supports filters, search, and their intersection', () => {
