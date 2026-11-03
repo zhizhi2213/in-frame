@@ -63,6 +63,16 @@ export const albums = {
     source: 'flickr',
     title: 'Victory · Zurich Switzerland', author: 'Thomas8047',
     sourceUrl: 'https://www.flickr.com/photos/93482748@N02/30294923634', authorUrl: 'https://www.flickr.com/photos/93482748@N02'
+  },
+  seabreeze: {
+    source: 'cnu',
+    title: '潮湿海风与我相拥', author: 'Pent',
+    sourceUrl: 'http://www.cnu.cc/works/684579', authorUrl: 'http://www.cnu.cc/users/1935976'
+  },
+  lazy: {
+    source: 'cnu',
+    title: '慵懒午后', author: 'Andrew舒昊翔',
+    sourceUrl: 'http://www.cnu.cc/works/684394', authorUrl: 'http://www.cnu.cc/users/1555020'
   }
 };
 
@@ -71,7 +81,7 @@ export const sourceMeta = {
     name: 'CNU视觉联盟',
     workLabel: 'CNU 原作品',
     rights: '原创，CC协议共享(署名)',
-    note: '原作品页版权栏标注如上，核对日期：2026-10-29、2026-10-30 与 2026-10-31；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
+    note: '原作品页版权栏标注如上，核对日期：2026-10-29、2026-10-30、2026-10-31 与 2026-11-03；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
     presentation: '使用 CNU 作品页提供的数字预览，保留完整画幅与原有色彩，不做 AI 生成、重绘或裁切；并非相机 RAW 或原始高分辨率文件。'
   },
   flickr: {
@@ -215,5 +225,15 @@ export const imageSources = {
     album: 'victory', index: 1, image: 'images/study-victory-gesture.jpg',
     previewUrl: 'https://live.staticflickr.com/5784/30294923634_cf40775b1d_h.jpg',
     width: 1600, height: 1132, sourceWidth: 2852, sourceHeight: 2017
+  },
+  'study-rock-step': {
+    album: 'seabreeze', index: 4, image: 'images/study-rock-step.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2611/02/82dsrfle37ovj2pjqyd1793585483093.jpg?x-oss-process=style/content',
+    width: 920, height: 1383, sourceWidth: 4021, sourceHeight: 6043
+  },
+  'study-window-bench': {
+    album: 'lazy', index: 6, image: 'images/study-window-bench.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2610/25/v4zitsmy3gecwslpmee1792896664083.jpg?x-oss-process=style/content',
+    width: 920, height: 614, sourceWidth: 3200, sourceHeight: 2134
   }
 };
