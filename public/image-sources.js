@@ -73,6 +73,16 @@ export const albums = {
     source: 'cnu',
     title: '慵懒午后', author: 'Andrew舒昊翔',
     sourceUrl: 'http://www.cnu.cc/works/684394', authorUrl: 'http://www.cnu.cc/users/1555020'
+  },
+  wuchao: {
+    source: 'cnu',
+    title: '风吹乌桕 一树尽相思', author: '清风听月',
+    sourceUrl: 'http://www.cnu.cc/works/684605', authorUrl: 'http://www.cnu.cc/users/833267'
+  },
+  qishen: {
+    source: 'cnu',
+    title: '栖身黄昏', author: '小布丁_Crystal',
+    sourceUrl: 'http://www.cnu.cc/works/684620', authorUrl: 'http://www.cnu.cc/users/909190'
   }
 };
 
@@ -81,7 +91,7 @@ export const sourceMeta = {
     name: 'CNU视觉联盟',
     workLabel: 'CNU 原作品',
     rights: '原创，CC协议共享(署名)',
-    note: '原作品页版权栏标注如上，核对日期：2026-10-29、2026-10-30、2026-10-31 与 2026-11-03；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
+    note: '原作品页版权栏标注如上，核对日期：2026-10-29、2026-10-30、2026-10-31、2026-11-03 与 2026-11-04；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
     presentation: '使用 CNU 作品页提供的数字预览，保留完整画幅与原有色彩，不做 AI 生成、重绘或裁切；并非相机 RAW 或原始高分辨率文件。'
   },
   flickr: {
@@ -235,5 +245,15 @@ export const imageSources = {
     album: 'lazy', index: 6, image: 'images/study-window-bench.jpg',
     previewUrl: 'http://imgoss.cnu.cc/2610/25/v4zitsmy3gecwslpmee1792896664083.jpg?x-oss-process=style/content',
     width: 920, height: 614, sourceWidth: 3200, sourceHeight: 2134
+  },
+  'study-reading-glow': {
+    album: 'wuchao', index: 13, image: 'images/study-reading-glow.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2611/03/0a1b3c37e6963d24a0d53ba6e577ba23.jpg?x-oss-process=style/content',
+    width: 920, height: 1227, sourceWidth: 3448, sourceHeight: 4597
+  },
+  'study-sun-star': {
+    album: 'qishen', index: 16, image: 'images/study-sun-star.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2611/03/316babb7a4153082bc03b78256188f2e.jpg?x-oss-process=style/content',
+    width: 920, height: 516, sourceWidth: 1927, sourceHeight: 1080
   }
 };
