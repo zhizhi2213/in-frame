@@ -83,6 +83,16 @@ export const albums = {
     source: 'cnu',
     title: '栖身黄昏', author: '小布丁_Crystal',
     sourceUrl: 'http://www.cnu.cc/works/684620', authorUrl: 'http://www.cnu.cc/users/909190'
+  },
+  daisy: {
+    source: 'cnu',
+    title: '雏菊的花语是...', author: '肉肉Roye',
+    sourceUrl: 'http://www.cnu.cc/works/684616', authorUrl: 'http://www.cnu.cc/users/1884644'
+  },
+  yonghe: {
+    source: 'cnu',
+    title: '金秋雍和 万事顺遂', author: '叁木川',
+    sourceUrl: 'http://www.cnu.cc/works/684642', authorUrl: 'http://www.cnu.cc/users/1958167'
   }
 };
 
@@ -91,7 +101,7 @@ export const sourceMeta = {
     name: 'CNU视觉联盟',
     workLabel: 'CNU 原作品',
     rights: '原创，CC协议共享(署名)',
-    note: '原作品页版权栏标注如上，核对日期：2026-10-29、2026-10-30、2026-10-31、2026-11-03 与 2026-11-04；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
+    note: '原作品页版权栏标注如上，核对日期：2026-10-29、2026-10-30、2026-10-31、2026-11-03、2026-11-04 与 2026-11-05；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
     presentation: '使用 CNU 作品页提供的数字预览，保留完整画幅与原有色彩，不做 AI 生成、重绘或裁切；并非相机 RAW 或原始高分辨率文件。'
   },
   flickr: {
@@ -255,5 +265,15 @@ export const imageSources = {
     album: 'qishen', index: 16, image: 'images/study-sun-star.jpg',
     previewUrl: 'http://imgoss.cnu.cc/2611/03/316babb7a4153082bc03b78256188f2e.jpg?x-oss-process=style/content',
     width: 920, height: 516, sourceWidth: 1927, sourceHeight: 1080
+  },
+  'study-daisy-fence': {
+    album: 'daisy', index: 12, image: 'images/study-daisy-fence.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2611/03/d28076a436c93407966345d4b0ae2192.jpg?x-oss-process=style/content',
+    width: 920, height: 613, sourceWidth: 4608, sourceHeight: 3072
+  },
+  'study-red-corridor': {
+    album: 'yonghe', index: 14, image: 'images/study-red-corridor.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2611/04/f2eda7b5b69c3b4d8ca7a1618a655d44.jpg?x-oss-process=style/content',
+    width: 920, height: 1380, sourceWidth: 2730, sourceHeight: 4096
   }
 };
