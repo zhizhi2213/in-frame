@@ -166,11 +166,6 @@ export const imageSources = {
     previewUrl: 'http://imgoss.cnu.cc/2610/28/tz56v9mbbpsugkj9fib1793175196094.jpg?x-oss-process=style/content',
     width: 920, height: 1380, sourceWidth: 1280, sourceHeight: 1920
   },
-  'study-newspaper': {
-    album: 'mountains', index: 1, image: 'images/study-newspaper.jpg',
-    previewUrl: 'http://imgoss.cnu.cc/2610/23/2tsffaqig7cygjpuj5s1792695074304.jpg?x-oss-process=style/content',
-    width: 920, height: 1380, sourceWidth: 4000, sourceHeight: 6000
-  },
   'study-diner-table': {
     album: 'diner', index: 1, image: 'images/study-diner-table.jpg',
     previewUrl: 'http://imgoss.cnu.cc/2610/26/qwj3daz6m6ijt9t82as1793015373216.jpg?x-oss-process=style/content',
