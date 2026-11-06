@@ -103,6 +103,16 @@ export const albums = {
     source: 'cnu',
     title: '打字机停在凶手的名称', author: '拍照的三木木',
     sourceUrl: 'http://www.cnu.cc/works/684602', authorUrl: 'http://www.cnu.cc/users/1963922'
+  },
+  xiaan: {
+    source: 'cnu',
+    title: '夏安 回见 勿念', author: '猫仙桑',
+    sourceUrl: 'http://www.cnu.cc/works/684633', authorUrl: 'http://www.cnu.cc/users/1456439'
+  },
+  yangzhou: {
+    source: 'cnu',
+    title: '扬州慢。', author: '乌蛮的樹',
+    sourceUrl: 'http://www.cnu.cc/works/684665', authorUrl: 'http://www.cnu.cc/users/949443'
   }
 };
 
@@ -295,5 +305,15 @@ export const imageSources = {
     album: 'typewriter', index: 3, image: 'images/study-brim-touch.jpg',
     previewUrl: 'http://imgoss.cnu.cc/2611/03/06469684da4435d6b3817a8e19f1f634.jpg?x-oss-process=style/content',
     width: 920, height: 1225, sourceWidth: 4000, sourceHeight: 5328
+  },
+  'study-cliff-overlook': {
+    album: 'xiaan', index: 7, image: 'images/study-cliff-overlook.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2611/04/rr8lflznk60497rb4z81793724535552.jpg?x-oss-process=style/content',
+    width: 920, height: 1636, sourceWidth: 2304, sourceHeight: 4096
+  },
+  'study-door-silhouette': {
+    album: 'yangzhou', index: 4, image: 'images/study-door-silhouette.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2611/05/uh4lwdx1rjdb711vhpa1793840018487.jpg?x-oss-process=style/content',
+    width: 920, height: 613, sourceWidth: 2000, sourceHeight: 1333
   }
 };
