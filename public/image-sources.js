@@ -93,6 +93,16 @@ export const albums = {
     source: 'cnu',
     title: '金秋雍和 万事顺遂', author: '叁木川',
     sourceUrl: 'http://www.cnu.cc/works/684642', authorUrl: 'http://www.cnu.cc/users/1958167'
+  },
+  mistwalk: {
+    source: 'cnu',
+    title: '沿雾而行', author: '流浪的花纸',
+    sourceUrl: 'http://www.cnu.cc/works/684678', authorUrl: 'http://www.cnu.cc/users/1830047'
+  },
+  typewriter: {
+    source: 'cnu',
+    title: '打字机停在凶手的名称', author: '拍照的三木木',
+    sourceUrl: 'http://www.cnu.cc/works/684602', authorUrl: 'http://www.cnu.cc/users/1963922'
   }
 };
 
@@ -101,7 +111,7 @@ export const sourceMeta = {
     name: 'CNU视觉联盟',
     workLabel: 'CNU 原作品',
     rights: '原创，CC协议共享(署名)',
-    note: '原作品页版权栏标注如上，核对日期：2026-10-29、2026-10-30、2026-10-31、2026-11-03、2026-11-04 与 2026-11-05；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
+    note: '原作品页版权栏标注如上，核对日期：2026-10-29、2026-10-30、2026-10-31、2026-11-03、2026-11-04、2026-11-05 与 2026-11-06；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
     presentation: '使用 CNU 作品页提供的数字预览，保留完整画幅与原有色彩，不做 AI 生成、重绘或裁切；并非相机 RAW 或原始高分辨率文件。'
   },
   flickr: {
@@ -275,5 +285,15 @@ export const imageSources = {
     album: 'yonghe', index: 14, image: 'images/study-red-corridor.jpg',
     previewUrl: 'http://imgoss.cnu.cc/2611/04/f2eda7b5b69c3b4d8ca7a1618a655d44.jpg?x-oss-process=style/content',
     width: 920, height: 1380, sourceWidth: 2730, sourceHeight: 4096
+  },
+  'study-pine-mist': {
+    album: 'mistwalk', index: 7, image: 'images/study-pine-mist.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2611/05/70or1a1fnlu555xcs1n1793867522996.jpg?x-oss-process=style/content',
+    width: 920, height: 1227, sourceWidth: 3566, sourceHeight: 4755
+  },
+  'study-brim-touch': {
+    album: 'typewriter', index: 3, image: 'images/study-brim-touch.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2611/03/06469684da4435d6b3817a8e19f1f634.jpg?x-oss-process=style/content',
+    width: 920, height: 1225, sourceWidth: 4000, sourceHeight: 5328
   }
 };
