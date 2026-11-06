@@ -50,9 +50,9 @@ test('seven distinct scenes provide all twenty-one complete shooting guides', ()
   }
 });
 
-test('thirty-six photos have independent close readings instead of scene references', () => {
-  assert.equal(photos.length, 36);
-  assert.equal(new Set(photoIds).size, 36);
+test('thirty-four photos have independent close readings instead of scene references', () => {
+  assert.equal(photos.length, 34);
+  assert.equal(new Set(photoIds).size, 34);
   assert.deepEqual(Object.keys(imageSources).sort(), [...photoIds].sort());
   for (const scene of scenes) {
     assert.equal(Object.hasOwn(scene, 'image'), false, scene.id);
@@ -71,13 +71,13 @@ test('thirty-six photos have independent close readings instead of scene referen
     assert.equal(new Set([photo.observation, photo.composition, photo.light, photo.pose]).size, 4, photo.id);
   }
   for (const key of ['title', 'takeaway', 'alt', 'observation', 'composition', 'light', 'pose']) {
-    assert.equal(new Set(photos.map(photo => photo[key])).size, 36, `${key} must be image-specific`);
+    assert.equal(new Set(photos.map(photo => photo[key])).size, 34, `${key} must be image-specific`);
   }
 });
 
 test('each photo has its own complete three-step shooting exercise', () => {
-  assert.equal(new Set(photos.map(photo => photo.exercise)).size, 36);
-  assert.equal(new Set(photos.map(photo => photo.exercise.steps)).size, 36);
+  assert.equal(new Set(photos.map(photo => photo.exercise)).size, 34);
+  assert.equal(new Set(photos.map(photo => photo.exercise.steps)).size, 34);
   for (const photo of photos) {
     for (const key of ['position', 'camera', 'direction', 'check', 'avoid']) {
       assertText(photo.exercise[key], `${photo.id}/exercise/${key}`);
@@ -89,11 +89,11 @@ test('each photo has its own complete three-step shooting exercise', () => {
     for (const step of photo.exercise.steps) assertText(step, `${photo.id}/exercise/step`);
   }
   for (const key of ['position', 'camera', 'steps', 'direction', 'check', 'avoid']) {
-    assert.equal(new Set(photos.map(photo => JSON.stringify(photo.exercise[key]))).size, 36, `${key} must be image-specific`);
+    assert.equal(new Set(photos.map(photo => JSON.stringify(photo.exercise[key]))).size, 34, `${key} must be image-specific`);
   }
 });
 
-test('thirty-six distinct sources credit twenty-two authors with safe source URLs and original sequence numbers', () => {
+test('thirty-four distinct sources credit twenty-two authors with safe source URLs and original sequence numbers', () => {
   const albumEntries = Object.entries(albums);
   assert.equal(albumEntries.length, 23);
   assert.equal(new Set(albumEntries.map(([, album]) => album.author)).size, 22);
@@ -141,9 +141,9 @@ test('thirty-six distinct sources credit twenty-two authors with safe source URL
       assert.ok(Number.isInteger(source[key]) && source[key] > 0, `${photo.id}/${key}`);
     }
   }
-  assert.equal(new Set(photos.map(photo => `${photo.album.sourceUrl}#${photo.source.index}`)).size, 36);
+  assert.equal(new Set(photos.map(photo => `${photo.album.sourceUrl}#${photo.source.index}`)).size, 34);
   for (const key of ['image', 'previewUrl']) {
-    assert.equal(new Set(photos.map(photo => photo.source[key])).size, 36, key);
+    assert.equal(new Set(photos.map(photo => photo.source[key])).size, 34, key);
   }
 });
 
@@ -170,7 +170,7 @@ test('rights retain attribution without claiming CC0, a license version, or veri
   assert.match(sourceMeta.flickr.rights, /CC\s*BY\s*2\.0/);
 });
 
-test('all thirty-six local JPEGs are distinct, under 1.5 MB, and match metadata within one-pixel scaling', async () => {
+test('all thirty-four local JPEGs are distinct, under 1.5 MB, and match metadata within one-pixel scaling', async () => {
   const hashes = new Set();
   for (const photo of photos) {
     const source = photo.source;
@@ -201,7 +201,7 @@ test('all thirty-six local JPEGs are distinct, under 1.5 MB, and match metadata 
     assert.ok(Math.abs(source.width - source.sourceWidth * scale) <= 1, `${photo.id}: uncropped width`);
     assert.ok(Math.abs(source.height - source.sourceHeight * scale) <= 1, `${photo.id}: uncropped height`);
   }
-  assert.equal(hashes.size, 36, 'each study uses a different JPEG');
+  assert.equal(hashes.size, 34, 'each study uses a different JPEG');
 });
 
 test('scene selection defaults to all, supports filters, search, and their intersection', () => {
@@ -253,7 +253,7 @@ test('photo selection handles defaults, empty inputs, unknown filters, and all s
 
 test('photo search finds authors, albums, techniques, close readings, tags, and exercise instructions', () => {
   for (const [query, expected] of [
-    ['  KuNaL  ', ['study-mountain-scale', 'study-newspaper', 'study-forest-pair', 'study-seated-pair', 'study-slope']],
+    ['  KuNaL  ', ['study-mountain-scale', 'study-newspaper', 'study-slope']],
     ['lansh蓝', ['study-tree-standing', 'study-tree-seated', 'study-leaves']],
     ['清寂之年', ['study-corridor', 'study-orange', 'study-hands']],
     ['引导线', ['study-corridor']],

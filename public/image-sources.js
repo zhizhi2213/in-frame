@@ -176,11 +176,6 @@ export const imageSources = {
     previewUrl: 'http://imgoss.cnu.cc/2610/26/qwj3daz6m6ijt9t82as1793015373216.jpg?x-oss-process=style/content',
     width: 920, height: 623, sourceWidth: 3292, sourceHeight: 2228
   },
-  'study-forest-pair': {
-    album: 'mountains', index: 3, image: 'images/study-forest-pair.jpg',
-    previewUrl: 'http://imgoss.cnu.cc/2610/23/ahwnno2woxunp6rfbyw1792695074305.jpg?x-oss-process=style/content',
-    width: 920, height: 1380, sourceWidth: 4000, sourceHeight: 6000
-  },
   'study-tree-seated': {
     album: 'sunshine', index: 6, image: 'images/study-tree-seated.jpg',
     previewUrl: 'http://imgoss.cnu.cc/2610/28/83u42tc7bms4ca3eehv1793175196094.jpg?x-oss-process=style/content',
@@ -190,11 +185,6 @@ export const imageSources = {
     album: 'linan', index: 4, image: 'images/study-bridge.jpg',
     previewUrl: 'http://imgoss.cnu.cc/2610/21/03y2gogura0mc2lexhe1792546331887.jpg?x-oss-process=style/content',
     width: 920, height: 1227, sourceWidth: 1080, sourceHeight: 1440
-  },
-  'study-seated-pair': {
-    album: 'mountains', index: 7, image: 'images/study-seated-pair.jpg',
-    previewUrl: 'http://imgoss.cnu.cc/2610/23/os00ixgz1ie295hg2841792695074307.jpg?x-oss-process=style/content',
-    width: 920, height: 1380, sourceWidth: 4000, sourceHeight: 6000
   },
   'study-leaves': {
     album: 'sunshine', index: 9, image: 'images/study-leaves.jpg',
