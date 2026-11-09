@@ -113,6 +113,16 @@ export const albums = {
     source: 'cnu',
     title: '扬州慢。', author: '乌蛮的樹',
     sourceUrl: 'http://www.cnu.cc/works/684665', authorUrl: 'http://www.cnu.cc/users/949443'
+  },
+  summertime: {
+    source: 'cnu',
+    title: '夏日时光', author: '非凡视觉设计',
+    sourceUrl: 'http://www.cnu.cc/works/684689', authorUrl: 'http://www.cnu.cc/users/916415'
+  },
+  footsteps: {
+    source: 'cnu',
+    title: '步履不停', author: '潘泊BerPan',
+    sourceUrl: 'http://www.cnu.cc/works/684701', authorUrl: 'http://www.cnu.cc/users/484412'
   }
 };
 
@@ -121,7 +131,7 @@ export const sourceMeta = {
     name: 'CNU视觉联盟',
     workLabel: 'CNU 原作品',
     rights: '原创，CC协议共享(署名)',
-    note: '原作品页版权栏标注如上，核对日期：2026-10-29、2026-10-30、2026-10-31、2026-11-03、2026-11-04、2026-11-05 与 2026-11-06；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
+    note: '原作品页版权栏标注如上，核对日期：2026-10-29、2026-10-30、2026-10-31、2026-11-03、2026-11-04、2026-11-05、2026-11-06 与 2026-11-09；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
     presentation: '使用 CNU 作品页提供的数字预览，保留完整画幅与原有色彩，不做 AI 生成、重绘或裁切；并非相机 RAW 或原始高分辨率文件。'
   },
   flickr: {
@@ -300,5 +310,15 @@ export const imageSources = {
     album: 'yangzhou', index: 4, image: 'images/study-door-silhouette.jpg',
     previewUrl: 'http://imgoss.cnu.cc/2611/05/uh4lwdx1rjdb711vhpa1793840018487.jpg?x-oss-process=style/content',
     width: 920, height: 613, sourceWidth: 2000, sourceHeight: 1333
+  },
+  'study-doorstep-chair': {
+    album: 'summertime', index: 7, image: 'images/study-doorstep-chair.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2611/05/748cbbe99cd53b35a3ad297e377fa7aa.jpg?x-oss-process=style/content',
+    width: 920, height: 1227, sourceWidth: 1080, sourceHeight: 1440
+  },
+  'study-shore-braid': {
+    album: 'footsteps', index: 14, image: 'images/study-shore-braid.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2611/06/b86f339179b333c588e53d7299517198.jpg?x-oss-process=style/content',
+    width: 920, height: 1380, sourceWidth: 2124, sourceHeight: 3186
   }
 };
