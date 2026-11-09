@@ -123,6 +123,11 @@ export const albums = {
     source: 'cnu',
     title: '步履不停', author: '潘泊BerPan',
     sourceUrl: 'http://www.cnu.cc/works/684701', authorUrl: 'http://www.cnu.cc/users/484412'
+  },
+  zhuojiu: {
+    source: 'cnu',
+    title: '一瓢浊酒尽余欢。', author: '乌蛮的樹',
+    sourceUrl: 'http://www.cnu.cc/works/684737', authorUrl: 'http://www.cnu.cc/users/949443'
   }
 };
 
@@ -320,5 +325,15 @@ export const imageSources = {
     album: 'footsteps', index: 14, image: 'images/study-shore-braid.jpg',
     previewUrl: 'http://imgoss.cnu.cc/2611/06/b86f339179b333c588e53d7299517198.jpg?x-oss-process=style/content',
     width: 920, height: 1380, sourceWidth: 2124, sourceHeight: 3186
+  },
+  'study-gourd-railing': {
+    album: 'zhuojiu', index: 5, image: 'images/study-gourd-railing.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2611/07/732ac3fc22bd3b009c509c4c25d184ff.jpg?x-oss-process=style/content',
+    width: 920, height: 920, sourceWidth: 2000, sourceHeight: 2000
+  },
+  'study-canal-boat': {
+    album: 'zhuojiu', index: 8, image: 'images/study-canal-boat.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2611/07/eb2b1901429d30919e4b0ed05a090384.jpg?x-oss-process=style/content',
+    width: 920, height: 920, sourceWidth: 2000, sourceHeight: 2000
   }
 };
