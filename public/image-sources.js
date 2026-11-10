@@ -128,6 +128,16 @@ export const albums = {
     source: 'cnu',
     title: '一瓢浊酒尽余欢。', author: '乌蛮的樹',
     sourceUrl: 'http://www.cnu.cc/works/684737', authorUrl: 'http://www.cnu.cc/users/949443'
+  },
+  shannar: {
+    source: 'cnu',
+    title: '山在那儿，水在那儿，人在中间，慢慢旧了。', author: '寺山修寺',
+    sourceUrl: 'http://www.cnu.cc/works/684769', authorUrl: 'http://www.cnu.cc/users/1396335'
+  },
+  shiyue: {
+    source: 'cnu',
+    title: '失约的海', author: '鱼的库洛牌',
+    sourceUrl: 'http://www.cnu.cc/works/684758', authorUrl: 'http://www.cnu.cc/users/1450691'
   }
 };
 
@@ -136,7 +146,7 @@ export const sourceMeta = {
     name: 'CNU视觉联盟',
     workLabel: 'CNU 原作品',
     rights: '原创，CC协议共享(署名)',
-    note: '原作品页版权栏标注如上，核对日期：2026-10-29、2026-10-30、2026-10-31、2026-11-03、2026-11-04、2026-11-05、2026-11-06 与 2026-11-09；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
+    note: '原作品页版权栏标注如上，核对日期：2026-10-29、2026-10-30、2026-10-31、2026-11-03、2026-11-04、2026-11-05、2026-11-06、2026-11-09 与 2026-11-10；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
     presentation: '使用 CNU 作品页提供的数字预览，保留完整画幅与原有色彩，不做 AI 生成、重绘或裁切；并非相机 RAW 或原始高分辨率文件。'
   },
   flickr: {
@@ -335,5 +345,15 @@ export const imageSources = {
     album: 'zhuojiu', index: 8, image: 'images/study-canal-boat.jpg',
     previewUrl: 'http://imgoss.cnu.cc/2611/07/eb2b1901429d30919e4b0ed05a090384.jpg?x-oss-process=style/content',
     width: 920, height: 920, sourceWidth: 2000, sourceHeight: 2000
+  },
+  'study-gorge-falls': {
+    album: 'shannar', index: 8, image: 'images/study-gorge-falls.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2611/09/tren7pz5rk0e33usk9k1794211000195.jpg?x-oss-process=style/content',
+    width: 920, height: 1383, sourceWidth: 3658, sourceHeight: 5498
+  },
+  'study-shallows-point': {
+    album: 'shiyue', index: 5, image: 'images/study-shallows-point.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2611/09/f40483a634603a329255f0ff7413e2f8.jpg?x-oss-process=style/content',
+    width: 920, height: 517, sourceWidth: 3487, sourceHeight: 1961
   }
 };
