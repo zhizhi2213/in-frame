@@ -115,6 +115,13 @@ test('thirty-eight distinct sources credit twenty-five authors with safe source 
       routes: { sourceUrl: /^\/photos\/[^/]+\/[1-9]\d*\/?$/, authorUrl: /^\/photos\/[^/]+\/?$/ },
       previewPath: /^\/\d+\/\d+_[0-9a-f]+_[a-z0-9]+\.jpg$/i,
       previewSearch: []
+    },
+    unsplash: {
+      hosts: ['unsplash.com'],
+      previewHosts: ['images.unsplash.com'],
+      routes: { sourceUrl: /^\/photos\/[a-zA-Z0-9_-]+$/, authorUrl: /^\/@[a-zA-Z0-9_-]+$/ },
+      previewPath: /^\/photo-[0-9a-f-]+$/,
+      previewSearch: [['w', '920']]
     }
   };
   for (const [id, album] of albumEntries) {
@@ -156,7 +163,7 @@ test('rights retain attribution without claiming CC0, a license version, or veri
   for (const [id, meta] of Object.entries(sourceMeta)) {
     for (const key of ['name', 'workLabel', 'rights', 'note', 'presentation']) assertText(meta[key], `${id}/${key}`);
     assert.match(meta.rights, /署名/);
-    assert.match(meta.rights, /CC/);
+    if (id !== 'unsplash') assert.match(meta.rights, /CC/);
     assert.match(meta.note, /署名和原作链接/);
     assert.match(meta.note, /不代表.*额外授权/);
     assert.match(meta.presentation, /保留完整画幅/);
@@ -169,6 +176,8 @@ test('rights retain attribution without claiming CC0, a license version, or veri
   const licenseClaims = `${cnu.rights} ${cnu.note.replace(/不等同于\s*CC\s*0/gi, '')}`;
   assert.doesNotMatch(licenseClaims, /CC\s*0|\bCC(?:[\s-]+BY)?(?:[\s-]+(?:NC|ND|SA))*[\s-]*[1-9](?:\.\d+)?|creativecommons\.org\/(?:licenses|publicdomain)\//i);
   assert.match(sourceMeta.flickr.rights, /CC\s*BY\s*2\.0/);
+  assert.match(sourceMeta.unsplash.rights, /Unsplash License/);
+  assert.doesNotMatch(sourceMeta.unsplash.rights, /CC/, 'Unsplash License is not a CC license and must not be labeled as one');
 });
 
 test('all thirty-eight local JPEGs are distinct, under 1.5 MB, and match metadata within one-pixel scaling', async () => {
