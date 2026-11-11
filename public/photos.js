@@ -3,6 +3,7 @@ import { scenes } from './data.js';
 
 export const photos = [
   {
+    no: 1,
     id: 'study-corridor', sceneId: 'architecture', title: '让走廊的线条，把目光带向人',
     takeaway: '人不必站正中；明亮的衣服和走廊纵深，也能成为视觉中心。',
     tags: ['引导线', '全身站姿'], level: '入门',
@@ -21,6 +22,7 @@ export const photos = [
     }
   },
   {
+    no: 2,
     id: 'study-gate', sceneId: 'architecture', title: '等人物走进门洞的亮处',
     takeaway: '先找一个亮背景，再等背影出现，比追着人拍更容易。',
     tags: ['框景', '行走背影'], level: '入门',
@@ -39,6 +41,7 @@ export const photos = [
     }
   },
   {
+    no: 3,
     id: 'study-mountain-scale', sceneId: 'mountain', title: '把人放小，山才显得大',
     takeaway: '人、树、远山三个尺度，让一张照片有了层次。',
     tags: ['小人物大风景', '层次'], level: '入门',
@@ -57,6 +60,7 @@ export const photos = [
     }
   },
   {
+    no: 4,
     id: 'study-orange', sceneId: 'park', title: '与其说自然一点，不如吃一瓣橘子',
     takeaway: '一个完整的小动作，同时解决手、视线和表情。',
     tags: ['坐姿', '逆光'], level: '入门',
@@ -75,6 +79,7 @@ export const photos = [
     }
   },
   {
+    no: 5,
     id: 'study-umbrella', sceneId: 'street', title: '一把伞，打破满屏的重复',
     takeaway: '重复图案做背景，一个不同的形状就能成为主角。',
     tags: ['重复与对比', '雨雪街景'], level: '入门',
@@ -93,6 +98,7 @@ export const photos = [
     }
   },
   {
+    no: 6,
     id: 'study-tree-standing', sceneId: 'park', title: '树冠留多一点，全身照就有场景',
     takeaway: '保留上方叶片，让人物从“站着拍”变成“在树下做事”。',
     tags: ['全身站姿', '道具'], level: '入门',
@@ -111,24 +117,7 @@ export const photos = [
     }
   },
   {
-    id: 'study-diner-table', sceneId: 'cafe', title: '让桌面成为前景，而不是障碍',
-    takeaway: '桌边坐姿可以用手臂展开空间，杯碟交代日常场景。',
-    tags: ['桌边坐姿', '环境色'], level: '进阶观察',
-    alt: '绿色花纹窗前的人坐在圆桌边，双臂向两侧伸展，前景是杯碟和桌布，人物脸部较暗。',
-    observation: '绿色窗面占据背景，圆桌和杯碟在近处，人物双臂朝两侧展开。脸相对偏暗，整张照片有强烈黄绿环境色。',
-    composition: '桌沿将视线带向双手，再回到脸。窗格提供重复背景，前景杯碟增加层次，但亮白餐具也可能抢走注意力。',
-    light: '明亮绿色窗面与暗脸并存，手臂上有暖色亮部。这是鲜明的风格选择，不是新手拍清人脸的唯一标准；具体灯光和后期未知。',
-    pose: '两只手分别沿桌边与座位方向放开，上身微侧。手臂和桌面形成展开的线条，比双手紧贴身体更有空间感。',
-    exercise: {
-      position: '征得店家同意后，在桌边侧坐，双手轻放桌沿或椅侧，不把体重压在桌上。',
-      camera: '手机 1× 横拍，坐在对面约 1–1.5 米；镜头略高于桌面，先点脸对焦。',
-      steps: ['只保留一只自己的杯子作前景，不动店内布景。', '请同伴伸展一只手，另一只手放松，轻轻转向镜头。', '若脸太暗，就转向普通窗光再拍一张，比较情绪和清晰度。'],
-      direction: '手顺着桌边放松，像坐下来等朋友，轻轻转过来看看我。',
-      check: '最亮的是脸还是杯子？杯碟有没有挡住手？眼睛是否清晰？',
-      avoid: '不照搬浓重色偏来掩盖暗脸；不移动热饮、不占用通道，避免拍入未同意的顾客。'
-    }
-  },
-  {
+    no: 7,
     id: 'study-tree-seated', sceneId: 'park', title: '蹲下来做一件小事，画面就活了',
     takeaway: '人物降低高度，树干与草地就能把动作包围起来。',
     tags: ['低姿态', '专注动作'], level: '入门',
@@ -147,6 +136,7 @@ export const photos = [
     }
   },
   {
+    no: 8,
     id: 'study-bridge', sceneId: 'architecture', title: '人很小，也能告诉你桥有多大',
     takeaway: '这张不是摆姿势范本，而是环境尺度与剪影的观察练习。',
     tags: ['剪影', '倒影'], level: '进阶观察',
@@ -165,6 +155,7 @@ export const photos = [
     }
   },
   {
+    no: 9,
     id: 'study-leaves', sceneId: 'park', title: '用叶片包围脸，而不是遮住脸',
     takeaway: '环境可以靠得很近，但眼睛仍需要一块清楚的空间。',
     tags: ['近景框景', '视线留白'], level: '入门',
@@ -183,6 +174,7 @@ export const photos = [
     }
   },
   {
+    no: 10,
     id: 'study-slope', sceneId: 'mountain', title: '一高一低，让双人小景有变化',
     takeaway: '人物再小，高低差和清楚的轮廓也能组织画面。',
     tags: ['高低组合', '斜线构图'], level: '入门',
@@ -201,24 +193,7 @@ export const photos = [
     }
   },
   {
-    id: 'study-window', sceneId: 'cafe', title: '对称的窗，让一个偏侧姿势更醒目',
-    takeaway: '背景越稳定，身体一点点不对称就越有表现力。',
-    tags: ['对称框景', '室内全身'], level: '进阶观察',
-    alt: '黄绿色花纹大窗居中，人物在窗前双手向两侧打开、腿部交错，两边有明亮的暖色灯光。',
-    observation: '大窗在中央，两侧灯光形成呼应，人物双手向窗台两边打开，身体与腿部并不是完全对称的。',
-    composition: '背景近似对称，人物站在中间也不会无聊，因为手臂和腿带来斜线。脚下留有地面，窗框与全身一同完整出现。',
-    light: '窗面是强烈黄绿色，两侧灯具有明显泛光。这种色彩和眩光属于画面风格，无法确认灯具设置或滤镜，日常练习可用普通明窗。',
-    pose: '两只手分开，身体重心偏向一侧，腿部交错。可以学习手臂展开与重心变化，不需要坐上窗台或穿同样服装。',
-    exercise: {
-      position: '找可拍照、没有坠落风险的室内窗或装饰墙，人物双脚落地，一脚轻轻前移。',
-      camera: '手机 1× 横拍，约 3–4 米、胸口高度；先对齐窗框竖线，再纳入全身。',
-      steps: ['先把左右窗框拍端正，观察两边留白是否接近。', '人物在中央站定，双手向两侧自然打开或轻扶稳固扶手。', '保持一脚承重、另一脚仅前移半步，拍下轻微的不对称。'],
-      direction: '身体稍微偏向一边，手轻轻打开，脚都留在地上，不用用力摆。',
-      check: '窗框歪了吗？双手是否被切掉？身体有没有僵硬地贴在背景上？',
-      avoid: '不坐或爬窗台，不把玻璃当支撑；店内先征得同意，不碰灯具与陈设。'
-    }
-  },
-  {
+    no: 11,
     id: 'study-hands', sceneId: 'park', title: '拍不到全身时，留下一张手的细节',
     takeaway: '完整的一组照片，可以用细节连接人与环境。',
     tags: ['手部细节', '明暗聚焦'], level: '入门',
@@ -237,6 +212,7 @@ export const photos = [
     }
   },
   {
+    no: 12,
     id: 'study-sunflower-dusk', sceneId: 'field', title: '天快黑时，让花束替你打光',
     takeaway: '冷蓝的天加上暖色的花，一张照片就有了温差。',
     tags: ['冷暖对比', '花束前景'], level: '进阶观察',
@@ -255,6 +231,7 @@ export const photos = [
     }
   },
   {
+    no: 13,
     id: 'study-riverbank-bouquet', sceneId: 'field', title: '阴天的河边，坐下来就对了',
     takeaway: '光线平淡时，让一束花负责所有颜色。',
     tags: ['阴天散射光', '草地坐姿'], level: '入门',
@@ -273,6 +250,7 @@ export const photos = [
     }
   },
   {
+    no: 14,
     id: 'study-easel-sunset', sceneId: 'field', title: '借一个画架，把日落装进画面',
     takeaway: '一件道具，能让空白的风光长出故事。',
     tags: ['日落逆光', '道具叙事'], level: '进阶观察',
@@ -291,6 +269,7 @@ export const photos = [
     }
   },
   {
+    no: 15,
     id: 'study-easel-mirror', sceneId: 'field', title: '蓝调一刻，镜子里还有一片天',
     takeaway: '天黑前的一小段时间，冷色环境和暖色人物最相配。',
     tags: ['蓝调时刻', '镜面反射'], level: '进阶观察',
@@ -309,6 +288,7 @@ export const photos = [
     }
   },
   {
+    no: 16,
     id: 'study-orchard-fence', sceneId: 'field', title: '坐上栏杆，让空田替你说出秋天',
     takeaway: '横构图的空景里，一个人坐在栏杆上，就是全部的重量。',
     tags: ['横向留白', '栏杆坐姿'], level: '入门',
@@ -327,6 +307,7 @@ export const photos = [
     }
   },
   {
+    no: 17,
     id: 'study-bench-seated', sceneId: 'street', title: '坐长椅的一头，把路面留给光',
     takeaway: '坐末端而不是正中，斜线和空白就都来帮忙了。',
     tags: ['长椅坐姿', '侧逆光'], level: '进阶观察',
@@ -345,6 +326,7 @@ export const photos = [
     }
   },
   {
+    no: 18,
     id: 'study-sea-railing', sceneId: 'coast', title: '背身靠栏，把仰头交给风',
     takeaway: '背对镜头仰头，海风自己会把头发吹成造型。',
     tags: ['海滨护栏', '背身仰头'], level: '入门',
@@ -363,6 +345,7 @@ export const photos = [
     }
   },
   {
+    no: 19,
     id: 'study-dune-dusk', sceneId: 'coast', title: '沿沙脊行走，让影子落在沙纹上',
     takeaway: '沙脊线自带方向感，影子替你交代光在哪里。',
     tags: ['沙丘走姿', '低角度逆光'], level: '进阶观察',
@@ -381,6 +364,7 @@ export const photos = [
     }
   },
   {
+    no: 20,
     id: 'study-cobblestone-duo', sceneId: 'street', title: '两个人同步迈步，马路就是T台',
     takeaway: '同伴并肩同速走，步伐一致比表情好看更重要。',
     tags: ['双人行走', '同步步伐'], level: '进阶观察',
@@ -399,6 +383,7 @@ export const photos = [
     }
   },
   {
+    no: 21,
     id: 'study-victory-gesture', sceneId: 'street', title: '蹲到孩子的高度，让手势替他说话',
     takeaway: '拍小孩别俯拍；镜头放低到他眼睛的高度，手势就成了主角。',
     tags: ['儿童街拍', '平视手势'], level: '入门',
@@ -417,6 +402,7 @@ export const photos = [
     }
   },
   {
+    no: 22,
     id: 'study-rock-step', sceneId: 'coast', title: '踩上一块深色礁石，白裙才有了落点',
     takeaway: '浅色长裙配深色礁石，人物靠明暗交界站住，不必站在画面正中。',
     tags: ['礁石落脚', '薄纱提摆'], level: '进阶观察',
@@ -435,24 +421,7 @@ export const photos = [
     }
   },
   {
-    id: 'study-window-bench', sceneId: 'cafe', title: '把腿收起来，窄窗边也装得下整个人',
-    takeaway: '位置不够宽时，收拢身体比向后退更容易把人拍全。',
-    tags: ['窗下长凳', '抱膝回头'], level: '入门',
-    alt: '室内窗下的条纹软垫长凳上，穿红色连体衣的人侧坐抱膝、双手扣在脚踝前，从肩头回头看向镜头，背后是白色多格窗和窗外的绿树。',
-    observation: '横幅画面里，人物侧坐在窗下一张条纹软垫长凳上，双膝收向胸前，两只手在脚踝前交叠扣住，脸从肩头方向转回来正对镜头。身后是白色窗框与多格玻璃，窗外是一片虚掉的绿叶，右侧玻璃里还映着模糊的室内轮廓。红色连体衣的饱和度远高于周围，窗框的白色竖条从她身后穿过；长凳的条纹在画面底部铺成一条横向色带，窗台以下的墙面落进暗处。',
-    composition: '横幅把整扇窗当成背景板：窗格的竖条是固定的格子，人物是画面里唯一不规则的形状。头在上方偏右、脚在右下角，身体折出一条从肩到脚踝的斜线，占住左侧到中部；膝、手、脸三点收成一个紧凑的三角，把视线锁在中间。底部条纹长凳给了坐姿一个明确的地面，画面下沿才不会空掉。若改成竖幅，两侧窗格被切走，"窗里坐着一个人"这层关系就弱了一半。',
-    light: '光从窗外进来，柔而偏冷：脸朝向窗的一侧亮，背向的一侧沉下去，鼻尖和颧骨上只留细窄的亮面，窗台下方明显更暗。她待在窗与室内之间的过渡带上，既没正对强光，也没完全躲进阴影。红色与窗外那片绿正好互补，人是靠颜色跳出来的，不是靠亮度压过背景。',
-    pose: '侧坐抱膝再回头：膝盖收到胸前把身体压成一块紧凑的形状，双手在脚踝处交叠，手臂围成一个闭合的环。回头只转颈部和上半身，腰没有跟着扭，所以看上去是放松而不是硬拗。抱膝时留意下巴别埋进膝盖，得给脸留出一条完整的边。',
-    exercise: {
-      position: '找有宽窗台或窗边长凳的咖啡馆、民宿角落，先问过店家；坐在结实的长凳上，不上窗台、不把身体压向玻璃。',
-      camera: '手机 1× 横拍，约 1.5–2 米、与坐姿视线齐平或略高；先让窗框竖线竖直，再把膝盖和脚一起收进画面。',
-      steps: ['先横拍一张只有窗与长凳的空景，对齐窗框竖线，确认底部色带的位置。', '请同伴侧坐、双膝收向胸口，双手轻扣脚踝，不必用力抱紧。', '让同伴把脸从肩头转过来连拍两张：一张看镜头，一张看窗外，比较哪个更松弛。'],
-      direction: '侧着坐，腿收起来，手搭在脚踝上，脸慢慢从肩膀那边转过来看我。',
-      check: '窗框竖线直不直？膝盖有没有顶到下巴、挡住脸？脚和手是不是完整留在画面里？',
-      avoid: '不爬窗台、不把体重压在玻璃上；先征得店家同意，不挪动陈设、不占用通道，避开其他客人的正脸。'
-    }
-  },
-  {
+    no: 23,
     id: 'study-reading-glow', sceneId: 'architecture', title: '让太阳藏在脑后，替侧脸描一道金边',
     takeaway: '逆光不必只拍剪影；光源躲在人物头后，侧脸的轮廓会被勾出一圈亮边。',
     tags: ['逆光轮廓', '低头阅读'], level: '进阶观察',
@@ -471,6 +440,7 @@ export const photos = [
     }
   },
   {
+    no: 24,
     id: 'study-daisy-fence', sceneId: 'field', title: '隔着栅栏伸手，前景替你把季节拉近',
     takeaway: '让一段旧栅栏斜着挡在镜头前，人物在远处完成一个小动作，秋天的草甸就有了前后两层。',
     tags: ['栅栏前景', '逆光拾花'], level: '进阶观察',
@@ -489,6 +459,7 @@ export const photos = [
     }
   },
   {
+    no: 25,
     id: 'study-red-corridor', sceneId: 'architecture', title: '站进廊道的光缝里，侧面比正面更有戏',
     takeaway: '红墙红柱之间总有一道亮缝，让人侧身站在明暗交界上，轮廓自己会讲故事。',
     tags: ['廊道侧光', '侧面轮廓'], level: '入门',
@@ -507,6 +478,7 @@ export const photos = [
     }
   },
   {
+    no: 26,
     id: 'study-sun-star', sceneId: 'field', title: '把落日搁在头后，收一颗星芒',
     takeaway: '太阳刚好被头部边缘遮住一半时，会收成一颗星芒，人也被勾出一圈金边。',
     tags: ['星芒落日', '回望天光'], level: '入门',
@@ -525,6 +497,7 @@ export const photos = [
     }
   },
   {
+    no: 27,
     id: 'study-pine-mist', sceneId: 'mountain', title: '雾把背景洗干净，孤树替你收住画面',
     takeaway: '大雾天是天然的减法背景，一棵孤树加一小片坡地，就够撑起整张照片。',
     tags: ['雾天减法', '孤树定构图'], level: '入门',
@@ -543,6 +516,7 @@ export const photos = [
     }
   },
   {
+    no: 28,
     id: 'study-brim-touch', sceneId: 'street', title: '一个扶帽檐的小动作，让黑白街头有了焦点',
     takeaway: '环境线条太多时拍半身，让手做一个小动作，视线就有了落脚点。',
     tags: ['黑白街拍', '手势点睛'], level: '入门',
@@ -561,6 +535,7 @@ export const photos = [
     }
   },
   {
+    no: 29,
     id: 'study-cliff-overlook', sceneId: 'coast', title: '站上崖顶俯拍，把大海让成一片留白',
     takeaway: '找到一处高于海面的坡顶，把人物压进画面底缘，海面替你承担九成的画面。',
     tags: ['俯拍留白', '海岸徒步'], level: '入门',
@@ -579,6 +554,7 @@ export const photos = [
     }
   },
   {
+    no: 30,
     id: 'study-door-silhouette', sceneId: 'architecture', title: '门洞当画框，剪影替你收进一座园',
     takeaway: '从暗处往亮处拍，让同伴站在门洞中间，背影剪影和门框就是现成的双层画框。',
     tags: ['门洞画框', '背影剪影'], level: '入门',
@@ -597,6 +573,7 @@ export const photos = [
     }
   },
   {
+    no: 31,
     id: 'study-doorstep-chair', sceneId: 'street', title: '借店门口的旧木椅，把街口坐成布景',
     takeaway: '街拍不一定要走起来，一把有年代感的椅子加一家小店，坐姿比站姿更有故事。',
     tags: ['街边坐姿', '小店门面'], level: '入门',
@@ -615,6 +592,7 @@ export const photos = [
     }
   },
   {
+    no: 32,
     id: 'study-shore-braid', sceneId: 'coast', title: '背影坐上礁石，让辫子做全画的焦点',
     takeaway: '背对镜头坐在水边，把三分之二的画面让给水面，一条垂在背上的辫子就能让背影不呆板。',
     tags: ['背影构图', '礁石水岸'], level: '入门',
@@ -633,6 +611,7 @@ export const photos = [
     }
   },
   {
+    no: 33,
     id: 'study-gourd-railing', sceneId: 'park', title: '亮树林前，让一个喝水的动作撑起剪影',
     takeaway: '把人安排在亮背景前拍成剪影，再给一个具体的小动作，剪影就不再是呆板的黑块。',
     tags: ['逆光剪影', '坐姿小动作'], level: '入门',
@@ -651,6 +630,7 @@ export const photos = [
     }
   },
   {
+    no: 34,
     id: 'study-canal-boat', sceneId: 'architecture', title: '站到水巷正对岸，等一条摇橹船走进中轴',
     takeaway: '两排老房子夹出的河道是现成的主轴，把移动的船放进轴线上，安静的水乡就有了动点。',
     tags: ['水巷纵深', '中轴动点'], level: '入门',
@@ -669,6 +649,7 @@ export const photos = [
     }
   },
   {
+    no: 35,
     id: 'study-gorge-falls', sceneId: 'mountain', title: '暗谷里，让白裙和白瀑互相点亮',
     takeaway: '在很暗的山谷里，一身白衣的人物自己会成为最亮的光，再让一条白瀑布在身后呼应，画面就有了两处互相照应的亮眼睛。',
     tags: ['暗调环境', '明暗互衬'], level: '进阶',
@@ -687,6 +668,7 @@ export const photos = [
     }
   },
   {
+    no: 36,
     id: 'study-shallows-point', sceneId: 'coast', title: '走进浅海，让一次指点把目光带向远方',
     takeaway: '两个人一起站进海水里，一个抬手指向海面远处，画面的视线就有了出口，双人合影也从「并排站着」变成「正在发生的事」。',
     tags: ['双人互动', '浅海站位'], level: '入门',
@@ -705,6 +687,7 @@ export const photos = [
     }
   },
   {
+    no: 37,
     id: 'study-snow-street', sceneId: 'street', title: '雪后街道上，让一件红格大衣迎面走来',
     takeaway: '整条街都被雪盖成白灰两色时，一件暖色大衣就是画面里唯一的声量；再让同伴走在远处、另一个人贴近镜头回眸，前后两层人物就把街道拍出了故事感。',
     tags: ['雪街迎面', '前后双层人物'], level: '入门',
@@ -723,6 +706,7 @@ export const photos = [
     }
   },
   {
+    no: 38,
     id: 'study-golden-ridge', sceneId: 'mountain', title: '把两个人放上金色山脊，让远山当背景板',
     takeaway: '秋冬的山坡褪成一片金色草甸时，走到脊线上站定，人小景大的合影就有了：近处的草、中景的人、远处的层叠山峦，一张照片装下三层纵深。',
     tags: ['山脊小人物', '三层纵深'], level: '进阶',

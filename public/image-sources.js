@@ -19,11 +19,6 @@ export const albums = {
     title: '太阳照着你好温柔', author: 'Lansh蓝',
     sourceUrl: 'http://www.cnu.cc/works/684469', authorUrl: 'http://www.cnu.cc/users/1028490'
   },
-  diner: {
-    source: 'cnu',
-    title: '失乐园·香港九龙茶餐厅', author: '卡卡色彩美学',
-    sourceUrl: 'http://www.cnu.cc/works/684433', authorUrl: 'http://www.cnu.cc/users/1083246'
-  },
   sunflower: {
     source: 'cnu',
     title: '夜晚的向日葵', author: '周大豪ZH',
@@ -68,11 +63,6 @@ export const albums = {
     source: 'cnu',
     title: '潮湿海风与我相拥', author: 'Pent',
     sourceUrl: 'http://www.cnu.cc/works/684579', authorUrl: 'http://www.cnu.cc/users/1935976'
-  },
-  lazy: {
-    source: 'cnu',
-    title: '慵懒午后', author: 'Andrew舒昊翔',
-    sourceUrl: 'http://www.cnu.cc/works/684394', authorUrl: 'http://www.cnu.cc/users/1555020'
   },
   wuchao: {
     source: 'cnu',
@@ -196,11 +186,6 @@ export const imageSources = {
     previewUrl: 'http://imgoss.cnu.cc/2610/28/tz56v9mbbpsugkj9fib1793175196094.jpg?x-oss-process=style/content',
     width: 920, height: 1380, sourceWidth: 1280, sourceHeight: 1920
   },
-  'study-diner-table': {
-    album: 'diner', index: 1, image: 'images/study-diner-table.jpg',
-    previewUrl: 'http://imgoss.cnu.cc/2610/26/qwj3daz6m6ijt9t82as1793015373216.jpg?x-oss-process=style/content',
-    width: 920, height: 623, sourceWidth: 3292, sourceHeight: 2228
-  },
   'study-tree-seated': {
     album: 'sunshine', index: 6, image: 'images/study-tree-seated.jpg',
     previewUrl: 'http://imgoss.cnu.cc/2610/28/83u42tc7bms4ca3eehv1793175196094.jpg?x-oss-process=style/content',
@@ -220,11 +205,6 @@ export const imageSources = {
     album: 'mountains', index: 9, image: 'images/study-slope.jpg',
     previewUrl: 'http://imgoss.cnu.cc/2610/23/np131fx3lz0v2rzg2k11792695074307.jpg?x-oss-process=style/content',
     width: 920, height: 1380, sourceWidth: 2016, sourceHeight: 3024
-  },
-  'study-window': {
-    album: 'diner', index: 2, image: 'images/study-window.jpg',
-    previewUrl: 'http://imgoss.cnu.cc/2610/26/t6dyzwnu8wwvivy914a1793015373216.jpg?x-oss-process=style/content',
-    width: 920, height: 628, sourceWidth: 2232, sourceHeight: 1524
   },
   'study-hands': {
     album: 'quiet', index: 1, image: 'images/study-hands.jpg',
@@ -285,11 +265,6 @@ export const imageSources = {
     album: 'seabreeze', index: 4, image: 'images/study-rock-step.jpg',
     previewUrl: 'http://imgoss.cnu.cc/2611/02/82dsrfle37ovj2pjqyd1793585483093.jpg?x-oss-process=style/content',
     width: 920, height: 1383, sourceWidth: 4021, sourceHeight: 6043
-  },
-  'study-window-bench': {
-    album: 'lazy', index: 6, image: 'images/study-window-bench.jpg',
-    previewUrl: 'http://imgoss.cnu.cc/2610/25/v4zitsmy3gecwslpmee1792896664083.jpg?x-oss-process=style/content',
-    width: 920, height: 614, sourceWidth: 3200, sourceHeight: 2134
   },
   'study-reading-glow': {
     album: 'wuchao', index: 13, image: 'images/study-reading-glow.jpg',

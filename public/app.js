@@ -33,6 +33,8 @@ function renderHero() {
   const photo = photos[0];
   $('#hero-artwork').innerHTML = `<span class="artwork-label">本期精读 01 / 人在风景里，而不只是站在风景前</span><button class="hero-photo-frame" data-photo="${photo.id}" aria-label="精读：${escape(photo.title)}"><img class="hero-photo" src="${photo.source.image}" alt="${escape(photo.alt)}" width="${photo.source.width}" height="${photo.source.height}" fetchpriority="high"></button><figcaption>${photoCredit(photo)}</figcaption><button class="hero-practice" data-photo="${photo.id}">为什么人站在这里，照片就好看？ ${icon('arrow')}</button>`;
   $('#photo-total').textContent = String(photos.length).padStart(2, '0');
+  $('#author-total').textContent = String(new Set(photos.map(photo => photo.album.author)).size).padStart(2, '0');
+  $('#exercise-total').textContent = String(scenes.length * 3);
   $('#image-presentation').textContent = sourceMeta[photo.album.source]?.presentation ?? sourceMeta.cnu.presentation;
   $('#practice-disclosure').textContent = practiceDisclosure;
 }
@@ -52,7 +54,7 @@ function renderCards() {
   const visibleScenes = state.view === 'explore' ? [] : selectScenes(scenes, state);
   $('#scene-grid').classList.toggle('photo-grid', state.view !== 'practice');
   $('#scene-grid').innerHTML = visiblePhotos.map(photo => `<article class="scene-card photo-card" data-item="${photo.id}">
-    <div class="card-toolbar"><span class="card-category">${String(photos.indexOf(photo) + 1).padStart(2, '0')} / ${escape(photo.level)}</span>${saveButton(photo)}</div>
+    <div class="card-toolbar"><span class="card-category">${String(photo.no).padStart(2, '0')} / ${escape(photo.level)}</span>${saveButton(photo)}</div>
     <div class="card-photo"><button class="photo-open" data-photo="${photo.id}" aria-label="精读：${escape(photo.title)}"><img src="${photo.source.image}" alt="${escape(photo.alt)}" width="${photo.source.width}" height="${photo.source.height}" loading="lazy" decoding="async"></button></div>
     <div class="card-body"><button class="card-heading" data-photo="${photo.id}"><h3>${escape(photo.title)}</h3>${icon('arrow')}</button><p class="card-subtitle">${escape(photo.takeaway)}</p><div class="card-tags"><div>${photo.tags.map(tag => `<span class="tag">${escape(tag)}</span>`).join('')}</div><button class="card-more" data-photo="${photo.id}">逐张解析 ${icon('chevron')}</button></div></div>
     <div class="card-credit">${photoCredit(photo)}</div></article>`).join('') + visibleScenes.map(scene => `<article class="scene-card practice-card" data-item="${scene.id}"><div class="card-toolbar"><span class="card-category">${icon(sceneIcons[scene.id])}${scene.category} / 跟拍</span>${saveButton(scene)}</div><div class="practice-symbol">${icon(sceneIcons[scene.id])}<span>独立练习 · 3 种拍法</span></div><div class="card-body"><button class="card-heading" data-open="${scene.id}"><h3>${escape(scene.title)}</h3>${icon('arrow')}</button><p class="card-subtitle">${escape(scene.subtitle)}</p><div class="card-tags"><div>${scene.tags.map(tag => `<span class="tag">${escape(tag)}</span>`).join('')}</div><button class="card-more" data-open="${scene.id}">开始跟拍 ${icon('chevron')}</button></div></div></article>`).join('');
