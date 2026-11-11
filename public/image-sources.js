@@ -138,6 +138,11 @@ export const albums = {
     source: 'cnu',
     title: '失约的海', author: '鱼的库洛牌',
     sourceUrl: 'http://www.cnu.cc/works/684758', authorUrl: 'http://www.cnu.cc/users/1450691'
+  },
+  xiaozun: {
+    source: 'cnu',
+    title: '小樽情书', author: '尼鹿',
+    sourceUrl: 'http://www.cnu.cc/works/684223', authorUrl: 'http://www.cnu.cc/users/1088291'
   }
 };
 
@@ -146,7 +151,7 @@ export const sourceMeta = {
     name: 'CNU视觉联盟',
     workLabel: 'CNU 原作品',
     rights: '原创，CC协议共享(署名)',
-    note: '原作品页版权栏标注如上，核对日期：2026-10-29、2026-10-30、2026-10-31、2026-11-03、2026-11-04、2026-11-05、2026-11-06、2026-11-09 与 2026-11-10；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
+    note: '原作品页版权栏标注如上，核对日期：2026-10-29、2026-10-30、2026-10-31、2026-11-03、2026-11-04、2026-11-05、2026-11-06、2026-11-09、2026-11-10 与 2026-11-11；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
     presentation: '使用 CNU 作品页提供的数字预览，保留完整画幅与原有色彩，不做 AI 生成、重绘或裁切；并非相机 RAW 或原始高分辨率文件。'
   },
   flickr: {
@@ -355,5 +360,15 @@ export const imageSources = {
     album: 'shiyue', index: 5, image: 'images/study-shallows-point.jpg',
     previewUrl: 'http://imgoss.cnu.cc/2611/09/f40483a634603a329255f0ff7413e2f8.jpg?x-oss-process=style/content',
     width: 920, height: 517, sourceWidth: 3487, sourceHeight: 1961
+  },
+  'study-snow-street': {
+    album: 'xiaozun', index: 7, image: 'images/study-snow-street.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2610/18/f101e5811aec36dfbebe14eee2840c41.jpg?x-oss-process=style/content',
+    width: 920, height: 643, sourceWidth: 2400, sourceHeight: 1678
+  },
+  'study-golden-ridge': {
+    album: 'mountains', index: 10, image: 'images/study-golden-ridge.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2610/23/b8cs42dxhan4slyweba1792695074307.jpg?x-oss-process=style/content',
+    width: 920, height: 613, sourceWidth: 3024, sourceHeight: 2016
   }
 };
