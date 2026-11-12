@@ -150,13 +150,6 @@ export const sourceMeta = {
     rights: 'CC BY 2.0（署名）',
     note: '原作品页标注的授权为 CC BY 2.0（署名），核对日期：2026-11-02。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
     presentation: '使用 Flickr 提供的 1600 宽 JPEG，保留完整画幅与原有影调，不做 AI 生成、重绘或裁切；并非原始高分辨率文件。'
-  },
-  unsplash: {
-    name: 'Unsplash',
-    workLabel: 'Unsplash 原作品',
-    rights: 'Unsplash License（免费使用授权，本站仍自愿保留署名）',
-    note: '照片依据 Unsplash 官方授权条款使用（免费使用与商用、无需强制署名），本站自愿保留署名和原作链接；授权条款不代表人物肖像、场地或商标的额外授权。',
-    presentation: '使用 Unsplash 提供的 920 宽 JPEG，保留完整画幅与原有影调，不做 AI 生成、重绘或裁切；并非原始高分辨率文件。'
   }
 };
 
