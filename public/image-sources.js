@@ -133,6 +133,16 @@ export const albums = {
     source: 'cnu',
     title: '小樽情书', author: '尼鹿',
     sourceUrl: 'http://www.cnu.cc/works/684223', authorUrl: 'http://www.cnu.cc/users/1088291'
+  },
+  cafepierre: {
+    source: 'flickr',
+    title: 'Cafe Pierre', author: 'malias',
+    sourceUrl: 'https://www.flickr.com/photos/62752875@N00/124306666', authorUrl: 'https://www.flickr.com/photos/62752875@N00'
+  },
+  coffeebreak: {
+    source: 'flickr',
+    title: 'Coffee Break', author: 'creyesk',
+    sourceUrl: 'https://www.flickr.com/photos/100477236@N02/16646738086', authorUrl: 'https://www.flickr.com/photos/100477236@N02'
   }
 };
 
@@ -148,7 +158,7 @@ export const sourceMeta = {
     name: 'Flickr',
     workLabel: 'Flickr 原作品',
     rights: 'CC BY 2.0（署名）',
-    note: '原作品页标注的授权为 CC BY 2.0（署名），核对日期：2026-11-02。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
+    note: '原作品页标注的授权为 CC BY 2.0（署名），核对日期：2026-11-02 与 2026-11-12。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
     presentation: '使用 Flickr 提供的 1600 宽 JPEG，保留完整画幅与原有影调，不做 AI 生成、重绘或裁切；并非原始高分辨率文件。'
   },
   wikimedia: {
@@ -352,5 +362,15 @@ export const imageSources = {
     album: 'mountains', index: 10, image: 'images/study-golden-ridge.jpg',
     previewUrl: 'http://imgoss.cnu.cc/2610/23/b8cs42dxhan4slyweba1792695074307.jpg?x-oss-process=style/content',
     width: 920, height: 613, sourceWidth: 3024, sourceHeight: 2016
+  },
+  'study-cafe-window': {
+    album: 'cafepierre', index: 1, image: 'images/study-cafe-window.jpg',
+    previewUrl: 'https://live.staticflickr.com/56/124306666_5a34cb1ace_b.jpg',
+    width: 768, height: 1024, sourceWidth: 1944, sourceHeight: 2592
+  },
+  'study-cafe-terrace': {
+    album: 'coffeebreak', index: 1, image: 'images/study-cafe-terrace.jpg',
+    previewUrl: 'https://live.staticflickr.com/8617/16646738086_9cd6494852_b.jpg',
+    width: 705, height: 1024, sourceWidth: 3580, sourceHeight: 5202
   }
 };
