@@ -115,6 +115,14 @@ test('thirty-eight distinct sources credit twenty-five authors with safe source 
       routes: { sourceUrl: /^\/photos\/[^/]+\/[1-9]\d*\/?$/, authorUrl: /^\/photos\/[^/]+\/?$/ },
       previewPath: /^\/\d+\/\d+_[0-9a-f]+_[a-z0-9]+\.jpg$/i,
       previewSearch: []
+    },
+    wikimedia: {
+      hosts: ['commons.wikimedia.org'],
+      previewHosts: ['upload.wikimedia.org'],
+      routes: { sourceUrl: /^\/w\/index\.php$/, authorUrl: /^\/wiki\/User:.+$/ },
+      queryRules: { sourceUrl: /^\?curid=[1-9]\d*$/ },
+      previewPath: /^\/wikipedia\/commons\/[0-9a-f]\/[0-9a-f]{2}\/[^/]+\.jpg$/i,
+      previewSearch: []
     }
   };
   for (const [id, album] of albumEntries) {
@@ -124,7 +132,8 @@ test('thirty-eight distinct sources credit twenty-five authors with safe source 
     for (const key of ['sourceUrl', 'authorUrl']) {
       const url = assertSourceUrl(album[key], rules.hosts);
       assert.match(url.pathname, rules.routes[key], `${id}/${key}`);
-      assert.equal(url.search, '', `${id}/${key}`);
+      if (rules.queryRules?.[key]) assert.match(url.search, rules.queryRules[key], `${id}/${key}`);
+      else assert.equal(url.search, '', `${id}/${key}`);
     }
   }
   for (const photo of photos) {
