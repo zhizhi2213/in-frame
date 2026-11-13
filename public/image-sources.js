@@ -143,6 +143,16 @@ export const albums = {
     source: 'flickr',
     title: 'Coffee Break', author: 'creyesk',
     sourceUrl: 'https://www.flickr.com/photos/100477236@N02/16646738086', authorUrl: 'https://www.flickr.com/photos/100477236@N02'
+  },
+  shanjian: {
+    source: 'cnu',
+    title: '山间', author: '九万里',
+    sourceUrl: 'http://www.cnu.cc/works/684833', authorUrl: 'http://www.cnu.cc/users/1488066'
+  },
+  wuyangcun: {
+    source: 'cnu',
+    title: '五羊邨散步', author: 'Lansh蓝',
+    sourceUrl: 'http://www.cnu.cc/works/684850', authorUrl: 'http://www.cnu.cc/users/1028490'
   }
 };
 
@@ -151,7 +161,7 @@ export const sourceMeta = {
     name: 'CNU视觉联盟',
     workLabel: 'CNU 原作品',
     rights: '原创，CC协议共享(署名)',
-    note: '原作品页版权栏标注如上，核对日期：2026-10-29、2026-10-30、2026-10-31、2026-11-03、2026-11-04、2026-11-05、2026-11-06、2026-11-09、2026-11-10 与 2026-11-11；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
+    note: '原作品页版权栏标注如上，核对日期：2026-10-29、2026-10-30、2026-10-31、2026-11-03、2026-11-04、2026-11-05、2026-11-06、2026-11-09、2026-11-10、2026-11-11 与 2026-11-13；页面未注明具体 CC 版本，不等同于 CC0。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
     presentation: '使用 CNU 作品页提供的数字预览，保留完整画幅与原有色彩，不做 AI 生成、重绘或裁切；并非相机 RAW 或原始高分辨率文件。'
   },
   flickr: {
@@ -372,5 +382,15 @@ export const imageSources = {
     album: 'coffeebreak', index: 1, image: 'images/study-cafe-terrace.jpg',
     previewUrl: 'https://live.staticflickr.com/8617/16646738086_9cd6494852_b.jpg',
     width: 705, height: 1024, sourceWidth: 3580, sourceHeight: 5202
+  },
+  'study-mountain-glow': {
+    album: 'shanjian', index: 4, image: 'images/study-mountain-glow.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2611/11/bef49c6b5397382fb37a586eb80a5a47.jpg?x-oss-process=style/content',
+    width: 920, height: 920, sourceWidth: 2944, sourceHeight: 2944
+  },
+  'study-fruit-stall': {
+    album: 'wuyangcun', index: 11, image: 'images/study-fruit-stall.jpg',
+    previewUrl: 'http://imgoss.cnu.cc/2611/12/7ia2sikjqb5tesoehpe1794455903135.jpg?x-oss-process=style/content',
+    width: 920, height: 614, sourceWidth: 1280, sourceHeight: 854
   }
 };
