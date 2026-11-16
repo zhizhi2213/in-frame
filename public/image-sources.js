@@ -153,6 +153,16 @@ export const albums = {
     source: 'cnu',
     title: '五羊邨散步', author: 'Lansh蓝',
     sourceUrl: 'http://www.cnu.cc/works/684850', authorUrl: 'http://www.cnu.cc/users/1028490'
+  },
+  eyefive: {
+    source: 'flickr',
+    title: 'Eye five', author: 'Go-tea 郭天',
+    sourceUrl: 'https://www.flickr.com/photos/131814204@N04/50340520792', authorUrl: 'https://www.flickr.com/photos/131814204@N04'
+  },
+  barcelonabarista: {
+    source: 'flickr',
+    title: 'Barista en Barcelona', author: 'Blasius Kawalkowski',
+    sourceUrl: 'https://www.flickr.com/photos/126029899@N07/18638162195', authorUrl: 'https://www.flickr.com/photos/126029899@N07'
   }
 };
 
@@ -168,8 +178,8 @@ export const sourceMeta = {
     name: 'Flickr',
     workLabel: 'Flickr 原作品',
     rights: 'CC BY 2.0（署名）',
-    note: '原作品页标注的授权为 CC BY 2.0（署名），核对日期：2026-11-02 与 2026-11-12。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
-    presentation: '使用 Flickr 提供的 1600 宽 JPEG，保留完整画幅与原有影调，不做 AI 生成、重绘或裁切；并非原始高分辨率文件。'
+    note: '原作品页标注的授权为 CC BY 2.0（署名），核对日期：2026-11-02、2026-11-12 与 2026-11-16。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
+    presentation: '使用 Flickr 提供的数字预览 JPEG，保留完整画幅与原有影调，不做 AI 生成、重绘或裁切；并非原始高分辨率文件。'
   },
   wikimedia: {
     name: 'Wikimedia Commons',
@@ -392,5 +402,15 @@ export const imageSources = {
     album: 'wuyangcun', index: 11, image: 'images/study-fruit-stall.jpg',
     previewUrl: 'http://imgoss.cnu.cc/2611/12/7ia2sikjqb5tesoehpe1794455903135.jpg?x-oss-process=style/content',
     width: 920, height: 614, sourceWidth: 1280, sourceHeight: 854
+  },
+  'study-cafe-glass-peace': {
+    album: 'eyefive', index: 1, image: 'images/study-cafe-glass-peace.jpg',
+    previewUrl: 'https://live.staticflickr.com/65535/50340520792_d5a2142069_b.jpg',
+    width: 683, height: 1024, sourceWidth: 4160, sourceHeight: 6240
+  },
+  'study-cafe-profile': {
+    album: 'barcelonabarista', index: 1, image: 'images/study-cafe-profile.jpg',
+    previewUrl: 'https://live.staticflickr.com/8882/18638162195_254032e757_b.jpg',
+    width: 683, height: 1024, sourceWidth: 3335, sourceHeight: 5002
   }
 };

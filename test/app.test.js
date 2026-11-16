@@ -50,9 +50,9 @@ test('seven distinct scenes provide all twenty-one complete shooting guides', ()
   }
 });
 
-test('forty-two photos have independent close readings instead of scene references', () => {
-  assert.equal(photos.length, 42);
-  assert.equal(new Set(photoIds).size, 42);
+test('forty-four photos have independent close readings instead of scene references', () => {
+  assert.equal(photos.length, 44);
+  assert.equal(new Set(photoIds).size, 44);
   assert.deepEqual(photos.map(photo => photo.no), photos.map((_, index) => index + 1), 'photo numbers are explicit, stable, and sequential');
   assert.deepEqual(Object.keys(imageSources).sort(), [...photoIds].sort());
   for (const scene of scenes) {
@@ -72,13 +72,13 @@ test('forty-two photos have independent close readings instead of scene referenc
     assert.equal(new Set([photo.observation, photo.composition, photo.light, photo.pose]).size, 4, photo.id);
   }
   for (const key of ['title', 'takeaway', 'alt', 'observation', 'composition', 'light', 'pose']) {
-    assert.equal(new Set(photos.map(photo => photo[key])).size, 42, `${key} must be image-specific`);
+    assert.equal(new Set(photos.map(photo => photo[key])).size, 44, `${key} must be image-specific`);
   }
 });
 
 test('each photo has its own complete three-step shooting exercise', () => {
-  assert.equal(new Set(photos.map(photo => photo.exercise)).size, 42);
-  assert.equal(new Set(photos.map(photo => photo.exercise.steps)).size, 42);
+  assert.equal(new Set(photos.map(photo => photo.exercise)).size, 44);
+  assert.equal(new Set(photos.map(photo => photo.exercise.steps)).size, 44);
   for (const photo of photos) {
     for (const key of ['position', 'camera', 'direction', 'check', 'avoid']) {
       assertText(photo.exercise[key], `${photo.id}/exercise/${key}`);
@@ -90,16 +90,16 @@ test('each photo has its own complete three-step shooting exercise', () => {
     for (const step of photo.exercise.steps) assertText(step, `${photo.id}/exercise/step`);
   }
   for (const key of ['position', 'camera', 'steps', 'direction', 'check', 'avoid']) {
-    assert.equal(new Set(photos.map(photo => JSON.stringify(photo.exercise[key]))).size, 42, `${key} must be image-specific`);
+    assert.equal(new Set(photos.map(photo => JSON.stringify(photo.exercise[key]))).size, 44, `${key} must be image-specific`);
   }
 });
 
-test('forty-two distinct sources credit twenty-eight authors with safe source URLs and original sequence numbers', () => {
+test('forty-four distinct sources credit thirty authors with safe source URLs and original sequence numbers', () => {
   const albumEntries = Object.entries(albums);
-  assert.equal(albumEntries.length, 31);
-  assert.equal(new Set(albumEntries.map(([, album]) => album.author)).size, 28);
-  assert.equal(new Set(albumEntries.map(([, album]) => album.sourceUrl)).size, 31);
-  assert.equal(new Set(albumEntries.map(([, album]) => album.authorUrl)).size, 28);
+  assert.equal(albumEntries.length, 33);
+  assert.equal(new Set(albumEntries.map(([, album]) => album.author)).size, 30);
+  assert.equal(new Set(albumEntries.map(([, album]) => album.sourceUrl)).size, 33);
+  assert.equal(new Set(albumEntries.map(([, album]) => album.authorUrl)).size, 30);
   assert.deepEqual([...new Set(photos.map(photo => photo.source.album))].sort(), Object.keys(albums).sort());
   const sourceRules = {
     cnu: {
@@ -151,9 +151,9 @@ test('forty-two distinct sources credit twenty-eight authors with safe source UR
       assert.ok(Number.isInteger(source[key]) && source[key] > 0, `${photo.id}/${key}`);
     }
   }
-  assert.equal(new Set(photos.map(photo => `${photo.album.sourceUrl}#${photo.source.index}`)).size, 42);
+  assert.equal(new Set(photos.map(photo => `${photo.album.sourceUrl}#${photo.source.index}`)).size, 44);
   for (const key of ['image', 'previewUrl']) {
-    assert.equal(new Set(photos.map(photo => photo.source[key])).size, 42, key);
+    assert.equal(new Set(photos.map(photo => photo.source[key])).size, 44, key);
   }
 });
 
@@ -180,7 +180,7 @@ test('rights retain attribution without claiming CC0, a license version, or veri
   assert.match(sourceMeta.flickr.rights, /CC\s*BY\s*2\.0/);
 });
 
-test('all forty-two local JPEGs are distinct, under 1.5 MB, and match metadata within one-pixel scaling', async () => {
+test('all forty-four local JPEGs are distinct, under 1.5 MB, and match metadata within one-pixel scaling', async () => {
   const hashes = new Set();
   for (const photo of photos) {
     const source = photo.source;
@@ -211,7 +211,7 @@ test('all forty-two local JPEGs are distinct, under 1.5 MB, and match metadata w
     assert.ok(Math.abs(source.width - source.sourceWidth * scale) <= 1, `${photo.id}: uncropped width`);
     assert.ok(Math.abs(source.height - source.sourceHeight * scale) <= 1, `${photo.id}: uncropped height`);
   }
-  assert.equal(hashes.size, 42, 'each study uses a different JPEG');
+  assert.equal(hashes.size, 44, 'each study uses a different JPEG');
 });
 
 test('scene selection defaults to all, supports filters, search, and their intersection', () => {
@@ -328,7 +328,7 @@ test('combined favorites preserve existing scene IDs alongside new photo IDs', (
   assert.deepEqual(saved, ['park', 'study-hands', 'coast', 'study-corridor']);
   assert.deepEqual(selectPhotos(photos, { view: 'saved', saved }).map(photo => photo.id), ['study-corridor', 'study-hands']);
   assert.deepEqual(selectScenes(scenes, { view: 'saved', saved }).map(scene => scene.id), ['park', 'coast']);
-  assert.deepEqual(selectPhotos(photos, { query: '日常咖啡' }).map(photo => photo.id), ['study-cafe-window', 'study-cafe-terrace']);
+  assert.deepEqual(selectPhotos(photos, { query: '日常咖啡' }).map(photo => photo.id), ['study-cafe-window', 'study-cafe-terrace', 'study-cafe-glass-peace', 'study-cafe-profile']);
 });
 
 test('photo selection and favorite toggling do not mutate photos, nested data, options, or saved IDs', () => {
