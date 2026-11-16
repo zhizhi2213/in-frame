@@ -163,6 +163,16 @@ export const albums = {
     source: 'flickr',
     title: 'Barista en Barcelona', author: 'Blasius Kawalkowski',
     sourceUrl: 'https://www.flickr.com/photos/126029899@N07/18638162195', authorUrl: 'https://www.flickr.com/photos/126029899@N07'
+  },
+  capelookout: {
+    source: 'wikimedia',
+    title: 'Woman and dog walk on beach at Cape Lookout State Park (Oregon)', author: 'Mattsjc',
+    sourceUrl: 'https://commons.wikimedia.org/w/index.php?curid=163268799', authorUrl: 'https://commons.wikimedia.org/wiki/User:Mattsjc'
+  },
+  braydunes: {
+    source: 'wikimedia',
+    title: 'Bray-Dunes Digue R03', author: 'Marc Ryckaert',
+    sourceUrl: 'https://commons.wikimedia.org/w/index.php?curid=26031248', authorUrl: 'https://commons.wikimedia.org/wiki/User:MJJR'
   }
 };
 
@@ -185,7 +195,7 @@ export const sourceMeta = {
     name: 'Wikimedia Commons',
     workLabel: 'Commons 原作品页',
     rights: 'CC BY（署名，具体版本以原作品页标注为准，本站自愿保留署名）',
-    note: '照片来自 Wikimedia Commons，原作品页标注 CC BY 授权（署名），核对日期由每日任务登记时填写并附于作品卡。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
+    note: '照片来自 Wikimedia Commons，原作品页标注 CC BY 授权（署名），核对日期：2026-11-16。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
     presentation: '使用 Commons 提供的原始 JPEG，保留完整画幅与原有影调，不做 AI 生成、重绘或裁切；并非原始高分辨率文件。'
   }
 };
@@ -412,5 +422,15 @@ export const imageSources = {
     album: 'barcelonabarista', index: 1, image: 'images/study-cafe-profile.jpg',
     previewUrl: 'https://live.staticflickr.com/8882/18638162195_254032e757_b.jpg',
     width: 683, height: 1024, sourceWidth: 3335, sourceHeight: 5002
+  },
+  'study-beach-stroll': {
+    album: 'capelookout', index: 1, image: 'images/study-beach-stroll.jpg',
+    previewUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Woman_and_dog_walk_on_beach_at_Cape_Lookout_State_Park_%28Oregon%29.jpg',
+    width: 920, height: 1226, sourceWidth: 3024, sourceHeight: 4032
+  },
+  'study-promenade-lamps': {
+    album: 'braydunes', index: 1, image: 'images/study-promenade-lamps.jpg',
+    previewUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/Bray-Dunes_Digue_R03.jpg',
+    width: 920, height: 1412, sourceWidth: 2517, sourceHeight: 3863
   }
 };
