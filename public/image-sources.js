@@ -173,6 +173,16 @@ export const albums = {
     source: 'wikimedia',
     title: 'Bray-Dunes Digue R03', author: 'Marc Ryckaert',
     sourceUrl: 'https://commons.wikimedia.org/w/index.php?curid=26031248', authorUrl: 'https://commons.wikimedia.org/wiki/User:MJJR'
+  },
+  harshita: {
+    source: 'wikimedia',
+    title: 'Harshita Roy with Her Portrait - Street Portrait Session - 40th International Kolkata Book Fair - Milan Mela Complex - Kolkata 2016-02-02 0419', author: 'Biswarup Ganguly',
+    sourceUrl: 'https://commons.wikimedia.org/w/index.php?curid=46815358', authorUrl: 'https://commons.wikimedia.org/wiki/User:Gangulybiswarup'
+  },
+  palmtrail: {
+    source: 'wikimedia',
+    title: 'Washingtonia filifera- trail hikers', author: 'Thayne Tuason',
+    sourceUrl: 'https://commons.wikimedia.org/w/index.php?curid=103648954', authorUrl: 'https://commons.wikimedia.org/wiki/User:ThayneT'
   }
 };
 
@@ -195,7 +205,7 @@ export const sourceMeta = {
     name: 'Wikimedia Commons',
     workLabel: 'Commons 原作品页',
     rights: 'CC BY（署名，具体版本以原作品页标注为准，本站自愿保留署名）',
-    note: '照片来自 Wikimedia Commons，原作品页标注 CC BY 授权（署名），核对日期：2026-11-16。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
+    note: '照片来自 Wikimedia Commons，原作品页标注 CC BY 授权（署名），核对日期：2026-11-16、2026-11-17。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
     presentation: '使用 Commons 提供的原始 JPEG，保留完整画幅与原有影调，不做 AI 生成、重绘或裁切；并非原始高分辨率文件。'
   }
 };
@@ -432,5 +442,15 @@ export const imageSources = {
     album: 'braydunes', index: 1, image: 'images/study-promenade-lamps.jpg',
     previewUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/Bray-Dunes_Digue_R03.jpg',
     width: 920, height: 1412, sourceWidth: 2517, sourceHeight: 3863
+  },
+  'study-portrait-held': {
+    album: 'harshita', index: 1, image: 'images/study-portrait-held.jpg',
+    previewUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/40/Harshita_Roy_with_Her_Portrait_-_Street_Portrait_Session_-_40th_International_Kolkata_Book_Fair_-_Milan_Mela_Complex_-_Kolkata_2016-02-02_0419.JPG',
+    width: 920, height: 1383, sourceWidth: 4000, sourceHeight: 6016
+  },
+  'study-palm-trail': {
+    album: 'palmtrail', index: 1, image: 'images/study-palm-trail.jpg',
+    previewUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Washingtonia_filifera-_trail_hikers.jpg',
+    width: 920, height: 1225, sourceWidth: 3448, sourceHeight: 4592
   }
 };
