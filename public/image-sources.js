@@ -183,6 +183,16 @@ export const albums = {
     source: 'wikimedia',
     title: 'Washingtonia filifera- trail hikers', author: 'Thayne Tuason',
     sourceUrl: 'https://commons.wikimedia.org/w/index.php?curid=103648954', authorUrl: 'https://commons.wikimedia.org/wiki/User:ThayneT'
+  },
+  rydale: {
+    source: 'flickr',
+    title: 'Woman walking through lavender field in suede country boots', author: 'Rydale Country Clothing',
+    sourceUrl: 'https://www.flickr.com/photos/182435424@N02/48355809092', authorUrl: 'https://www.flickr.com/photos/182435424@N02'
+  },
+  wanderer: {
+    source: 'flickr',
+    title: 'Wanderer II.', author: 'Aya Demeter',
+    sourceUrl: 'https://www.flickr.com/photos/26874425@N03/6772845549', authorUrl: 'https://www.flickr.com/photos/26874425@N03'
   }
 };
 
@@ -198,7 +208,7 @@ export const sourceMeta = {
     name: 'Flickr',
     workLabel: 'Flickr 原作品',
     rights: 'CC BY 2.0（署名）',
-    note: '原作品页标注的授权为 CC BY 2.0（署名），核对日期：2026-11-02、2026-11-12 与 2026-11-16。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
+    note: '原作品页标注的授权为 CC BY 2.0（署名），核对日期：2026-11-02、2026-11-12、2026-11-16 与 2026-11-18。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
     presentation: '使用 Flickr 提供的数字预览 JPEG，保留完整画幅与原有影调，不做 AI 生成、重绘或裁切；并非原始高分辨率文件。'
   },
   wikimedia: {
@@ -452,5 +462,15 @@ export const imageSources = {
     album: 'palmtrail', index: 1, image: 'images/study-palm-trail.jpg',
     previewUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Washingtonia_filifera-_trail_hikers.jpg',
     width: 920, height: 1225, sourceWidth: 3448, sourceHeight: 4592
+  },
+  'study-lavender-stride': {
+    album: 'rydale', index: 1, image: 'images/study-lavender-stride.jpg',
+    previewUrl: 'https://live.staticflickr.com/65535/48355809092_9b1bc6b90e_b.jpg',
+    width: 920, height: 1380, sourceWidth: 2000, sourceHeight: 3000
+  },
+  'study-grass-gaze': {
+    album: 'wanderer', index: 1, image: 'images/study-grass-gaze.jpg',
+    previewUrl: 'https://live.staticflickr.com/7174/6772845549_26092863be_b.jpg',
+    width: 920, height: 1387, sourceWidth: 1496, sourceHeight: 2256
   }
 };
