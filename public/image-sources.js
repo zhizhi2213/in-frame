@@ -193,6 +193,16 @@ export const albums = {
     source: 'flickr',
     title: 'Wanderer II.', author: 'Aya Demeter',
     sourceUrl: 'https://www.flickr.com/photos/26874425@N03/6772845549', authorUrl: 'https://www.flickr.com/photos/26874425@N03'
+  },
+  novicemonk: {
+    source: 'wikimedia',
+    title: 'Novice Monk Temple Chiang Mai Thailand', author: 'Philip Nalangan',
+    sourceUrl: 'https://commons.wikimedia.org/w/index.php?curid=165579853', authorUrl: 'https://commons.wikimedia.org/wiki/User:PhilipNalangan'
+  },
+  chaatvendor: {
+    source: 'wikimedia',
+    title: 'Chaat Vendor - Lower Bazaar - Shimla 2014-05-08 2103', author: 'Biswarup Ganguly',
+    sourceUrl: 'https://commons.wikimedia.org/w/index.php?curid=33240707', authorUrl: 'https://commons.wikimedia.org/wiki/User:Gangulybiswarup'
   }
 };
 
@@ -215,7 +225,7 @@ export const sourceMeta = {
     name: 'Wikimedia Commons',
     workLabel: 'Commons 原作品页',
     rights: 'CC BY（署名，具体版本以原作品页标注为准，本站自愿保留署名）',
-    note: '照片来自 Wikimedia Commons，原作品页标注 CC BY 授权（署名），核对日期：2026-11-16、2026-11-17。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
+    note: '照片来自 Wikimedia Commons，原作品页标注 CC BY 授权（署名），核对日期：2026-11-16、2026-11-17、2026-11-19。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
     presentation: '使用 Commons 提供的原始 JPEG，保留完整画幅与原有影调，不做 AI 生成、重绘或裁切；并非原始高分辨率文件。'
   }
 };
@@ -472,5 +482,15 @@ export const imageSources = {
     album: 'wanderer', index: 1, image: 'images/study-grass-gaze.jpg',
     previewUrl: 'https://live.staticflickr.com/7174/6772845549_26092863be_b.jpg',
     width: 920, height: 1387, sourceWidth: 1496, sourceHeight: 2256
+  },
+  'study-temple-prayer': {
+    album: 'novicemonk', index: 1, image: 'images/study-temple-prayer.jpg',
+    previewUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Novice_Monk_Temple_Chiang_Mai_Thailand.jpg',
+    width: 792, height: 920, sourceWidth: 3880, sourceHeight: 4506
+  },
+  'study-chaat-vendor': {
+    album: 'chaatvendor', index: 1, image: 'images/study-chaat-vendor.jpg',
+    previewUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Chaat_Vendor_-_Lower_Bazaar_-_Shimla_2014-05-08_2103.JPG',
+    width: 611, height: 920, sourceWidth: 4000, sourceHeight: 6016
   }
 };
