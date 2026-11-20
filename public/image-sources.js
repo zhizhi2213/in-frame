@@ -203,6 +203,16 @@ export const albums = {
     source: 'wikimedia',
     title: 'Chaat Vendor - Lower Bazaar - Shimla 2014-05-08 2103', author: 'Biswarup Ganguly',
     sourceUrl: 'https://commons.wikimedia.org/w/index.php?curid=33240707', authorUrl: 'https://commons.wikimedia.org/wiki/User:Gangulybiswarup'
+  },
+  cinderellas: {
+    source: 'flickr',
+    title: "Cinderella's Using WiFi", author: 'CarbonNYC [in SF!]',
+    sourceUrl: 'https://www.flickr.com/photos/15923063@N00/3440688097', authorUrl: 'https://www.flickr.com/photos/15923063@N00'
+  },
+  georgiepauwels: {
+    source: 'flickr',
+    title: 'Street Portrait', author: 'Georgie Pauwels',
+    sourceUrl: 'https://www.flickr.com/photos/53662163@N06/23048585314', authorUrl: 'https://www.flickr.com/photos/53662163@N06'
   }
 };
 
@@ -218,7 +228,7 @@ export const sourceMeta = {
     name: 'Flickr',
     workLabel: 'Flickr 原作品',
     rights: 'CC BY 2.0（署名）',
-    note: '原作品页标注的授权为 CC BY 2.0（署名），核对日期：2026-11-02、2026-11-12、2026-11-16 与 2026-11-18。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
+    note: '原作品页标注的授权为 CC BY 2.0（署名），核对日期：2026-11-02、2026-11-12、2026-11-16、2026-11-18 与 2026-11-20。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
     presentation: '使用 Flickr 提供的数字预览 JPEG，保留完整画幅与原有影调，不做 AI 生成、重绘或裁切；并非原始高分辨率文件。'
   },
   wikimedia: {
@@ -492,5 +502,15 @@ export const imageSources = {
     album: 'chaatvendor', index: 1, image: 'images/study-chaat-vendor.jpg',
     previewUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Chaat_Vendor_-_Lower_Bazaar_-_Shimla_2014-05-08_2103.JPG',
     width: 611, height: 920, sourceWidth: 4000, sourceHeight: 6016
+  },
+  'study-cafe-laptop': {
+    album: 'cinderellas', index: 1, image: 'images/study-cafe-laptop.jpg',
+    previewUrl: 'https://live.staticflickr.com/3399/3440688097_b363e6b4c9_b.jpg',
+    width: 920, height: 1383, sourceWidth: 2000, sourceHeight: 3008
+  },
+  'study-street-elder': {
+    album: 'georgiepauwels', index: 1, image: 'images/study-street-elder.jpg',
+    previewUrl: 'https://live.staticflickr.com/681/23048585314_c6d377d439_b.jpg',
+    width: 920, height: 1261, sourceWidth: 3264, sourceHeight: 4476
   }
 };
