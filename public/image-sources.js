@@ -223,6 +223,16 @@ export const albums = {
     source: 'wikimedia',
     title: 'Young monk', author: 'Serinde',
     sourceUrl: 'https://commons.wikimedia.org/w/index.php?curid=390536', authorUrl: 'https://commons.wikimedia.org/wiki/User:Serinde'
+  },
+  huangluo: {
+    source: 'wikimedia',
+    title: 'Huangluo', author: 'Arian Zwegers',
+    sourceUrl: 'https://commons.wikimedia.org/w/index.php?curid=74436735', authorUrl: 'https://commons.wikimedia.org/wiki/User:Arian_Zwegers'
+  },
+  kepwoman: {
+    source: 'wikimedia',
+    title: 'Market woman kep', author: 'Adam Jones',
+    sourceUrl: 'https://commons.wikimedia.org/w/index.php?curid=7301921', authorUrl: 'https://commons.wikimedia.org/wiki/User:Adam63'
   }
 };
 
@@ -532,5 +542,15 @@ export const imageSources = {
     album: 'youngmonk', index: 1, image: 'images/study-white-arch.jpg',
     previewUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Young_monk.jpg',
     width: 920, height: 1226, sourceWidth: 1200, sourceHeight: 1600
+  },
+  'study-hair-bun': {
+    album: 'huangluo', index: 1, image: 'images/study-hair-bun.jpg',
+    previewUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/85/Huangluo.jpg',
+    width: 920, height: 1380, sourceWidth: 3456, sourceHeight: 5184
+  },
+  'study-squat-scarf': {
+    album: 'kepwoman', index: 1, image: 'images/study-squat-scarf.jpg',
+    previewUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/Market_woman_kep.JPG',
+    width: 920, height: 1226, sourceWidth: 2304, sourceHeight: 3072
   }
 };
