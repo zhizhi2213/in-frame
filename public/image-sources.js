@@ -213,6 +213,16 @@ export const albums = {
     source: 'flickr',
     title: 'Street Portrait', author: 'Georgie Pauwels',
     sourceUrl: 'https://www.flickr.com/photos/53662163@N06/23048585314', authorUrl: 'https://www.flickr.com/photos/53662163@N06'
+  },
+  cafethought: {
+    source: 'wikimedia',
+    title: 'Woman sitting at a wooden table in a cafe with a thoughtful expression during the day', author: 'Shixart1985',
+    sourceUrl: 'https://commons.wikimedia.org/w/index.php?curid=196043621', authorUrl: 'https://commons.wikimedia.org/wiki/User:Shixart1985'
+  },
+  youngmonk: {
+    source: 'wikimedia',
+    title: 'Young monk', author: 'Serinde',
+    sourceUrl: 'https://commons.wikimedia.org/w/index.php?curid=390536', authorUrl: 'https://commons.wikimedia.org/wiki/User:Serinde'
   }
 };
 
@@ -235,7 +245,7 @@ export const sourceMeta = {
     name: 'Wikimedia Commons',
     workLabel: 'Commons 原作品页',
     rights: 'CC BY（署名，具体版本以原作品页标注为准，本站自愿保留署名）',
-    note: '照片来自 Wikimedia Commons，原作品页标注 CC BY 授权（署名），核对日期：2026-11-16、2026-11-17、2026-11-19。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
+    note: '照片来自 Wikimedia Commons，原作品页标注 CC BY 授权（署名），核对日期：2026-11-16、2026-11-17、2026-11-19、2026-11-23。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
     presentation: '使用 Commons 提供的原始 JPEG，保留完整画幅与原有影调，不做 AI 生成、重绘或裁切；并非原始高分辨率文件。'
   }
 };
@@ -512,5 +522,15 @@ export const imageSources = {
     album: 'georgiepauwels', index: 1, image: 'images/study-street-elder.jpg',
     previewUrl: 'https://live.staticflickr.com/681/23048585314_c6d377d439_b.jpg',
     width: 920, height: 1261, sourceWidth: 3264, sourceHeight: 4476
+  },
+  'study-cafe-chin-rest': {
+    album: 'cafethought', index: 1, image: 'images/study-cafe-chin-rest.jpg',
+    previewUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Woman_sitting_at_a_wooden_table_in_a_cafe_with_a_thoughtful_expression_during_the_day.jpg',
+    width: 920, height: 1378, sourceWidth: 4016, sourceHeight: 6016
+  },
+  'study-white-arch': {
+    album: 'youngmonk', index: 1, image: 'images/study-white-arch.jpg',
+    previewUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Young_monk.jpg',
+    width: 920, height: 1226, sourceWidth: 1200, sourceHeight: 1600
   }
 };
