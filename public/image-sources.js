@@ -243,6 +243,16 @@ export const albums = {
     source: 'flickr',
     title: '171315', author: 'Jake Guild',
     sourceUrl: 'https://www.flickr.com/photos/simpleskye/26289368268', authorUrl: 'https://www.flickr.com/photos/simpleskye'
+  },
+  radda: {
+    source: 'wikimedia',
+    title: 'Hiker in Radda in Chianti', author: 'Anna.Massini',
+    sourceUrl: 'https://commons.wikimedia.org/w/index.php?curid=161186033', authorUrl: 'https://commons.wikimedia.org/wiki/User:Anna.Massini'
+  },
+  coyotewall: {
+    source: 'wikimedia',
+    title: 'Mazamas hikers in Coyote Wall and Catherine Creek 03', author: 'Mattsjc',
+    sourceUrl: 'https://commons.wikimedia.org/w/index.php?curid=163174629', authorUrl: 'https://commons.wikimedia.org/wiki/User:Mattsjc'
   }
 };
 
@@ -265,7 +275,7 @@ export const sourceMeta = {
     name: 'Wikimedia Commons',
     workLabel: 'Commons 原作品页',
     rights: 'CC BY（署名，具体版本以原作品页标注为准，本站自愿保留署名）',
-    note: '照片来自 Wikimedia Commons，原作品页标注 CC BY 授权（署名），核对日期：2026-11-16、2026-11-17、2026-11-19、2026-11-23。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
+    note: '照片来自 Wikimedia Commons，原作品页标注 CC BY 授权（署名），核对日期：2026-11-16、2026-11-17、2026-11-19、2026-11-23、2026-11-25。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
     presentation: '使用 Commons 提供的原始 JPEG，保留完整画幅与原有影调，不做 AI 生成、重绘或裁切；并非原始高分辨率文件。'
   }
 };
@@ -572,5 +582,15 @@ export const imageSources = {
     album: 'simpleskye', index: 1, image: 'images/study-sunset-child.jpg',
     previewUrl: 'https://live.staticflickr.com/4627/26289368268_73494bed97_b.jpg',
     width: 920, height: 1381, sourceWidth: 2592, sourceHeight: 3888
+  },
+  'study-arch-exit': {
+    album: 'radda', index: 1, image: 'images/study-arch-exit.jpg',
+    previewUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Hiker_in_Radda_in_Chianti.jpg',
+    width: 920, height: 1327, sourceWidth: 2604, sourceHeight: 3756
+  },
+  'study-talus-pine': {
+    album: 'coyotewall', index: 1, image: 'images/study-talus-pine.jpg',
+    previewUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/42/Mazamas_hikers_in_Coyote_Wall_and_Catherine_Creek_03.jpg',
+    width: 920, height: 1226, sourceWidth: 3024, sourceHeight: 4032
   }
 };
