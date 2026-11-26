@@ -253,6 +253,16 @@ export const albums = {
     source: 'wikimedia',
     title: 'Mazamas hikers in Coyote Wall and Catherine Creek 03', author: 'Mattsjc',
     sourceUrl: 'https://commons.wikimedia.org/w/index.php?curid=163174629', authorUrl: 'https://commons.wikimedia.org/wiki/User:Mattsjc'
+  },
+  permacultured: {
+    source: 'flickr',
+    title: 'walking the track', author: 'PermaCultured',
+    sourceUrl: 'https://www.flickr.com/photos/45338605@N08/4284194086', authorUrl: 'https://www.flickr.com/photos/45338605@N08'
+  },
+  lassennps: {
+    source: 'flickr',
+    title: 'Hiker in Mules Ear field Mt Diller in background', author: 'LassenNPS',
+    sourceUrl: 'https://www.flickr.com/photos/61860846@N05/13172510775', authorUrl: 'https://www.flickr.com/photos/61860846@N05'
   }
 };
 
@@ -268,7 +278,7 @@ export const sourceMeta = {
     name: 'Flickr',
     workLabel: 'Flickr 原作品',
     rights: 'CC BY 2.0（署名）',
-    note: '原作品页标注的授权为 CC BY 2.0（署名），核对日期：2026-11-02、2026-11-12、2026-11-16、2026-11-18、2026-11-20 与 2026-11-24。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
+    note: '原作品页标注的授权为 CC BY 2.0（署名），核对日期：2026-11-02、2026-11-12、2026-11-16、2026-11-18、2026-11-20、2026-11-24 与 2026-11-26。署名和原作链接随图保留，不代表人物肖像、场地或商标的额外授权。',
     presentation: '使用 Flickr 提供的数字预览 JPEG，保留完整画幅与原有影调，不做 AI 生成、重绘或裁切；并非原始高分辨率文件。'
   },
   wikimedia: {
@@ -592,5 +602,15 @@ export const imageSources = {
     album: 'coyotewall', index: 1, image: 'images/study-talus-pine.jpg',
     previewUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/42/Mazamas_hikers_in_Coyote_Wall_and_Catherine_Creek_03.jpg',
     width: 920, height: 1226, sourceWidth: 3024, sourceHeight: 4032
+  },
+  'study-ridge-trail': {
+    album: 'permacultured', index: 1, image: 'images/study-ridge-trail.jpg',
+    previewUrl: 'https://live.staticflickr.com/4026/4284194086_4d4f95c63c_b.jpg',
+    width: 920, height: 1357, sourceWidth: 1694, sourceHeight: 2500
+  },
+  'study-meadow-stand': {
+    album: 'lassennps', index: 1, image: 'images/study-meadow-stand.jpg',
+    previewUrl: 'https://live.staticflickr.com/7183/13172510775_93e0f41ce7_b.jpg',
+    width: 920, height: 1226, sourceWidth: 2112, sourceHeight: 2816
   }
 };
